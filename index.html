@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jared Fixes | Tech Help Made Simple</title>
-  <meta name="description" content="Friendly, no-jargon IT support — from slow laptops to smart AI setups. Local or remote, Jared Fixes has you covered." />
+  <meta
+    name="description"
+    content="Friendly, no-jargon IT support in Wexford and beyond — from slow laptops to smart AI setups. Local or remote, Jared Fixes has you covered."
+  />
   <style>
     :root {
       --bg: #f5f7fb;
@@ -23,6 +26,7 @@
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
@@ -31,15 +35,26 @@
       line-height: 1.55;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .container { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
 
     .btn {
       padding: 14px 22px;
       border-radius: 999px;
       font-weight: 700;
       display: inline-block;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
@@ -47,18 +62,45 @@
       color: white;
     }
 
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+    }
+
     header {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.9);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(10px);
     }
 
-    .nav { display: flex; justify-content: space-between; padding: 16px 0; }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .contact-bar {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+      justify-content: flex-end;
+    }
 
     .hero {
-      padding: 80px 0;
+      padding: 88px 0;
       background: linear-gradient(135deg, #0d2940, #1d5d8e);
       color: white;
     }
@@ -67,16 +109,48 @@
       font-size: clamp(2.5rem, 5vw, 4rem);
       margin: 0 0 16px;
       letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 10ch;
     }
 
-    .hero p { max-width: 600px; margin-bottom: 20px; }
+    .hero p {
+      max-width: 640px;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
 
-    .section { padding: 60px 0; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
 
     .section-title {
       font-size: clamp(2rem, 4vw, 2.8rem);
       text-align: center;
       margin-bottom: 10px;
+      line-height: 1.1;
     }
 
     .section-sub {
@@ -86,15 +160,25 @@
       margin: 0 auto 30px;
     }
 
-    .grid { display: grid; gap: 20px; }
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
 
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      margin-bottom: 0;
     }
 
     .highlight {
@@ -103,19 +187,66 @@
       border-radius: var(--radius);
       padding: 30px;
       text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    footer { padding: 40px 0; text-align: center; color: var(--muted); }
+    .highlight p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 780px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-bar {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 72px 0;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <strong>Jared Fixes</strong>
-    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap; color:var(--muted); font-size:0.95rem;">
+    <div class="brand">Jared Fixes</div>
+    <div class="contact-bar">
       <span>Tech help made simple</span>
-      <a href="tel:+353000000000">📞 +353 00 000 0000</a>
+      <a href="tel:+353892183492">📞 +353 89 218 3492</a>
       <a href="mailto:fix@jaredtalbot.com">📧 fix@jaredtalbot.com</a>
     </div>
   </div>
@@ -123,20 +254,39 @@
 
 <section class="hero">
   <div class="container">
+    <div class="hero-meta">
+      <span class="hero-pill">Serving Wexford &amp; surrounding areas</span>
+      <span class="hero-pill">Same-day help available — local &amp; remote</span>
+    </div>
+
     <h1>Tech problems? I’ll fix them.</h1>
+
     <p>
       No jargon. No stress. Just clear, honest help — whether your computer is broken,
       slow, or you want to understand tools like AI.
     </p>
-    <a class="btn btn-primary" href="https://cal.com/your-link">Book Free Call</a>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+      <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container grid grid-3">
-    <div class="card"><strong>✔ Real-world experience</strong><p>I solve real problems — quickly and clearly.</p></div>
-    <div class="card"><strong>✔ Friendly support</strong><p>No tech talk. I explain things simply.</p></div>
-    <div class="card"><strong>✔ No fix, no fee</strong><p>If I can’t help, you don’t pay.</p></div>
+    <div class="card">
+      <strong>✔ Real-world experience</strong>
+      <p>I solve real problems — quickly and clearly.</p>
+    </div>
+    <div class="card">
+      <strong>✔ Friendly support</strong>
+      <p>No tech talk. I explain things simply.</p>
+    </div>
+    <div class="card">
+      <strong>✔ No fix, no fee</strong>
+      <p>If I can’t help, you don’t pay.</p>
+    </div>
   </div>
 </section>
 
@@ -154,7 +304,7 @@
       </div>
       <div class="card">
         <p>
-          Whether it’s fixing a laptop or setting up AI tools, I guide you step-by-step.
+          Whether it’s fixing a laptop or setting up AI tools, I guide you step by step.
         </p>
       </div>
       <div class="card">
@@ -171,9 +321,18 @@
     <h2 class="section-title">What I can help with</h2>
     <p class="section-sub">Simple solutions for everyday tech problems.</p>
     <div class="grid grid-3">
-      <div class="card"><strong>💻 Repairs</strong><p>Slow computers, crashes, viruses, setup.</p></div>
-      <div class="card"><strong>🤖 AI Help</strong><p>ChatGPT, automation, simple workflows.</p></div>
-      <div class="card"><strong>🔐 Digital Setup</strong><p>Email, backups, devices, general help.</p></div>
+      <div class="card">
+        <strong>💻 Repairs</strong>
+        <p>Slow computers, crashes, viruses, setup.</p>
+      </div>
+      <div class="card">
+        <strong>🤖 AI Help</strong>
+        <p>ChatGPT, automation, simple workflows.</p>
+      </div>
+      <div class="card">
+        <strong>🔐 Digital Setup</strong>
+        <p>Email, backups, devices, general help.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -188,11 +347,14 @@
 <section class="section">
   <div class="container highlight">
     <h2>Let’s get your tech sorted</h2>
-    <p>Book a free call, send me an email, or give me a ring and I’ll point you in the right direction straight away.</p>
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
-      <a class="btn btn-primary" href="https://cal.com/your-link">Book Free Call</a>
-      <a class="btn btn-primary" href="tel:+353000000000" style="background:rgba(255,255,255,0.14);">Call Now</a>
-      <a class="btn btn-primary" href="mailto:fix@jaredtalbot.com" style="background:rgba(255,255,255,0.14);">Email Me</a>
+    <p>
+      Book a free call, send me an email, or give me a ring and I’ll point you in the
+      right direction straight away.
+    </p>
+    <div class="cta-actions" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
+      <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+      <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
+      <a class="btn btn-secondary" href="mailto:fix@jaredtalbot.com">Email Me</a>
     </div>
   </div>
 </section>
@@ -200,10 +362,10 @@
 <footer>
   <div class="container">
     Jared Fixes — Tech help made simple<br />
-    <div style="margin-top:12px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-      <a href="tel:+353000000000">📞 +353 00 000 0000</a>
+    <div class="footer-links">
+      <a href="tel:+353892183492">📞 +353 89 218 3492</a>
       <a href="mailto:fix@jaredtalbot.com">📧 fix@jaredtalbot.com</a>
-      <a href="https://cal.com/your-link">📅 Book Free Call</a>
+      <a href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">📅 Book Free Call</a>
     </div>
   </div>
 </footer>
