@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jared Fixes | Tech Help Made Simple</title>
+  <meta name="description" content="Friendly, no-jargon IT support — from slow laptops to smart AI setups. Local or remote, Jared Fixes has you covered." />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #eef3f8;
+      --text: #132238;
+      --muted: #5a6a7d;
+      --primary: #0f4c75;
+      --primary-2: #1b6ca8;
+      --accent: #ff6a00;
+      --accent-2: #ff8840;
+      --border: #d7e1eb;
+      --shadow: 0 12px 30px rgba(15, 76, 117, 0.12);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+      line-height: 1.55;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav { display: flex; justify-content: space-between; padding: 16px 0; }
+
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0d2940, #1d5d8e);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p { max-width: 600px; margin-bottom: 20px; }
+
+    .section { padding: 60px 0; }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .grid { display: grid; gap: 20px; }
+
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .highlight {
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+    }
+
+    footer { padding: 40px 0; text-align: center; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <strong>Jared Fixes</strong>
+    <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap; color:var(--muted); font-size:0.95rem;">
+      <span>Tech help made simple</span>
+      <a href="tel:+353000000000">📞 +353 00 000 0000</a>
+      <a href="mailto:fix@jaredtalbot.com">📧 fix@jaredtalbot.com</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Tech problems? I’ll fix them.</h1>
+    <p>
+      No jargon. No stress. Just clear, honest help — whether your computer is broken,
+      slow, or you want to understand tools like AI.
+    </p>
+    <a class="btn btn-primary" href="https://cal.com/your-link">Book Free Call</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-3">
+    <div class="card"><strong>✔ Real-world experience</strong><p>I solve real problems — quickly and clearly.</p></div>
+    <div class="card"><strong>✔ Friendly support</strong><p>No tech talk. I explain things simply.</p></div>
+    <div class="card"><strong>✔ No fix, no fee</strong><p>If I can’t help, you don’t pay.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Meet Jared</h2>
+    <p class="section-sub">
+      I help people fix their tech and actually understand it.
+    </p>
+    <div class="grid grid-3">
+      <div class="card">
+        <p>
+          Tech shouldn’t feel confusing or overwhelming. My job is to simplify it.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          Whether it’s fixing a laptop or setting up AI tools, I guide you step-by-step.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          You’ll leave with working tech — and confidence to use it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What I can help with</h2>
+    <p class="section-sub">Simple solutions for everyday tech problems.</p>
+    <div class="grid grid-3">
+      <div class="card"><strong>💻 Repairs</strong><p>Slow computers, crashes, viruses, setup.</p></div>
+      <div class="card"><strong>🤖 AI Help</strong><p>ChatGPT, automation, simple workflows.</p></div>
+      <div class="card"><strong>🔐 Digital Setup</strong><p>Email, backups, devices, general help.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container highlight">
+    <h2>No Fix — No Fee</h2>
+    <p>If I can’t solve your problem, you don’t pay. Simple as that.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container highlight">
+    <h2>Let’s get your tech sorted</h2>
+    <p>Book a free call, send me an email, or give me a ring and I’ll point you in the right direction straight away.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
+      <a class="btn btn-primary" href="https://cal.com/your-link">Book Free Call</a>
+      <a class="btn btn-primary" href="tel:+353000000000" style="background:rgba(255,255,255,0.14);">Call Now</a>
+      <a class="btn btn-primary" href="mailto:fix@jaredtalbot.com" style="background:rgba(255,255,255,0.14);">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Jared Fixes — Tech help made simple<br />
+    <div style="margin-top:12px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="tel:+353000000000">📞 +353 00 000 0000</a>
+      <a href="mailto:fix@jaredtalbot.com">📧 fix@jaredtalbot.com</a>
+      <a href="https://cal.com/your-link">📅 Book Free Call</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
