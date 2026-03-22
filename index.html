@@ -14,12 +14,9 @@
       --bg-2: #0d1b2c;
       --surface: rgba(255, 255, 255, 0.04);
       --surface-2: rgba(255, 255, 255, 0.06);
-      --surface-3: #ffffff;
       --text: #edf3fb;
       --text-dark: #132238;
       --muted: #b4c0d0;
-      --muted-dark: #5a6a7d;
-      --primary: #0f4c75;
       --accent: #ff6a00;
       --accent-2: #ff8840;
       --border: rgba(255, 255, 255, 0.08);
@@ -28,19 +25,23 @@
       --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255,106,0,0.14), transparent 28%),
-        radial-gradient(circle at top right, rgba(15,76,117,0.22), transparent 28%),
+        radial-gradient(circle at top left, rgba(255, 106, 0, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 76, 117, 0.22), transparent 28%),
         linear-gradient(180deg, #07111d 0%, #08111d 100%);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     a {
@@ -54,12 +55,15 @@
     }
 
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 14px 22px;
       border-radius: 999px;
       font-weight: 700;
-      display: inline-block;
       transition: 0.2s ease;
       border: 1px solid transparent;
+      min-height: 48px;
     }
 
     .btn:hover {
@@ -102,6 +106,7 @@
       font-size: 1.08rem;
       font-weight: 800;
       letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
     .brand-dot {
@@ -110,6 +115,7 @@
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 0 16px rgba(255, 106, 0, 0.45);
+      flex-shrink: 0;
     }
 
     .contact-bar {
@@ -120,6 +126,10 @@
       color: var(--muted);
       font-size: 0.95rem;
       justify-content: flex-end;
+    }
+
+    .contact-bar a:hover {
+      color: #fff;
     }
 
     .hero {
@@ -183,6 +193,7 @@
       font-weight: 700;
       color: #fff;
       margin-bottom: 18px;
+      font-size: 1.05rem;
     }
 
     .hero-actions {
@@ -202,6 +213,12 @@
       margin-top: 18px;
     }
 
+    .note-box strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 6px;
+    }
+
     .trust-list {
       display: grid;
       gap: 14px;
@@ -212,12 +229,14 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px;
+      color: var(--muted);
     }
 
     .mini-card strong {
       display: block;
       margin-bottom: 6px;
       font-size: 1rem;
+      color: #fff;
     }
 
     .section {
@@ -230,6 +249,7 @@
       line-height: 1.08;
       text-align: center;
       letter-spacing: -0.04em;
+      text-wrap: balance;
     }
 
     .section-sub {
@@ -264,6 +284,7 @@
       margin: 0 0 10px;
       letter-spacing: -0.03em;
       font-size: 1.22rem;
+      color: #fff;
     }
 
     .card p,
@@ -271,12 +292,18 @@
       color: var(--muted);
     }
 
+    .card p {
+      margin: 0;
+    }
+
     .card ul {
       margin: 10px 0 0;
       padding-left: 18px;
     }
 
-    .card li { margin-bottom: 8px; }
+    .card li {
+      margin-bottom: 8px;
+    }
 
     .band {
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03));
@@ -284,6 +311,24 @@
       border-radius: 28px;
       padding: 28px;
       box-shadow: var(--shadow);
+    }
+
+    .band h2 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: #fff;
+    }
+
+    .band p,
+    .band li {
+      color: var(--muted);
+    }
+
+    .band ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
     }
 
     .price-stack {
@@ -297,11 +342,13 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 16px 18px;
+      color: var(--muted);
     }
 
     .price-item strong {
       display: block;
       margin-bottom: 4px;
+      color: #fff;
     }
 
     .cta-band {
@@ -311,6 +358,14 @@
       border-radius: 28px;
       padding: 34px 24px;
       box-shadow: var(--shadow);
+    }
+
+    .cta-band h2 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: #fff;
     }
 
     .cta-band p {
@@ -327,6 +382,11 @@
       margin-top: 18px;
     }
 
+    .faq-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
     details {
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
@@ -334,13 +394,20 @@
       padding: 16px 18px;
     }
 
+    details + details {
+      margin-top: 14px;
+    }
+
     summary {
       cursor: pointer;
       font-weight: 700;
       list-style: none;
+      color: #fff;
     }
 
-    summary::-webkit-details-marker { display: none; }
+    summary::-webkit-details-marker {
+      display: none;
+    }
 
     details p {
       margin: 12px 0 0;
@@ -359,6 +426,10 @@
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
     }
 
     @media (max-width: 980px) {
@@ -410,7 +481,10 @@
 
 <header>
   <div class="container nav">
-    <div class="brand"><span class="brand-dot"></span> Jared Fixes</div>
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>Jared Fixes</span>
+    </div>
     <div class="contact-bar">
       <span>Tech help made simple</span>
       <a href="tel:+353892183492">📞 +353 89 218 3492</a>
@@ -432,18 +506,19 @@
           <h1>Tech problems? I’ll fix them.</h1>
           <div class="hero-subline">No jargon. No stress. Fast, clear help when you need it.</div>
           <p>
-            Phones, PCs, printers, Wi-Fi, email setup, device security, and beginner-friendly AI help.
-            I keep things simple and tell you straight if something is worth fixing, improving, or replacing.
+            Phones, PCs, printers, Wi-Fi, email setup, device security, and beginner-friendly
+            AI help. I keep things simple and tell you straight if something is worth fixing,
+            improving, or replacing.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+            <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free 5-Min Call</a>
             <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
           </div>
 
           <div class="note-box">
-            <strong style="color:#fff; display:block; margin-bottom:6px;">Quick note</strong>
-            Yes, the website name says Jared Fixes — and that’s the point. Clear, local IT help with a modern edge, including simple AI support where it makes sense.
+            <strong>Quick note</strong>
+            Clear, local IT help with a modern edge — including simple AI support where it makes sense.
           </div>
         </div>
 
@@ -473,10 +548,13 @@
 <section class="section">
   <div class="container">
     <h2 class="section-title">What I can help with</h2>
-    <p class="section-sub">Simple solutions for everyday tech problems — plus smart help with AI, security basics, and digital setup.</p>
+    <p class="section-sub">
+      Simple solutions for everyday tech problems — plus smart help with AI, security basics, and digital setup.
+    </p>
+
     <div class="grid grid-3">
       <div class="card">
-        <h3>💻 Device & repair help</h3>
+        <h3>💻 Device &amp; repair help</h3>
         <ul>
           <li>Phone cleanup and speed-up basics</li>
           <li>Slow PCs, tidy-ups, updates, startup cleanup</li>
@@ -485,8 +563,9 @@
           <li>Storage full or slow device clean-up</li>
         </ul>
       </div>
+
       <div class="card">
-        <h3>🔐 Setup & security basics</h3>
+        <h3>🔐 Setup &amp; security basics</h3>
         <ul>
           <li>Email and WhatsApp setup</li>
           <li>Password manager setup</li>
@@ -495,6 +574,7 @@
           <li>General device setup and support</li>
         </ul>
       </div>
+
       <div class="card">
         <h3>🤖 AI help</h3>
         <ul>
@@ -512,7 +592,7 @@
 <section class="section">
   <div class="container grid grid-2">
     <div class="band">
-      <h2 style="margin-top:0; font-size:2rem; letter-spacing:-0.04em;">Pricing</h2>
+      <h2>Pricing</h2>
       <div class="price-stack">
         <div class="price-item">
           <strong>€30 call-out (includes the first 30 minutes)</strong>
@@ -527,11 +607,13 @@
           Ask when you contact me and I’ll apply it.
         </div>
       </div>
-      <p style="color:var(--muted); margin:16px 0 0;">Every visit ends with one of these: fixed, improved, or diagnosed with the best route forward.</p>
+      <p style="margin:16px 0 0;">
+        Every visit ends with one of these: fixed, improved, or diagnosed with the best route forward.
+      </p>
     </div>
 
     <div class="band">
-      <h2 style="margin-top:0; font-size:2rem; letter-spacing:-0.04em;">Boundaries</h2>
+      <h2>Boundaries</h2>
       <ul>
         <li>No complex hardware repairs, soldering, or parts installs</li>
         <li>No deep data recovery or hacked-account investigations</li>
@@ -540,7 +622,10 @@
         <li>No bypassing locks or account checks</li>
         <li>No business servers or large office networks</li>
       </ul>
-      <p style="color:var(--muted); margin:16px 0 0;">If you’re locked out of Apple, Google, or Microsoft accounts, we follow the official recovery steps. I can help guide the process, but I won’t bypass it.</p>
+      <p style="margin:16px 0 0;">
+        If you’re locked out of Apple, Google, or Microsoft accounts, we follow the official recovery steps.
+        I can help guide the process, but I won’t bypass it.
+      </p>
     </div>
   </div>
 </section>
@@ -549,6 +634,7 @@
   <div class="container">
     <h2 class="section-title">Meet Jared</h2>
     <p class="section-sub">I help people fix their tech and actually understand it.</p>
+
     <div class="grid grid-3">
       <div class="card">
         <p>Tech shouldn’t feel confusing or overwhelming. My job is to simplify it.</p>
@@ -565,13 +651,14 @@
 
 <section class="section">
   <div class="container cta-band">
-    <h2 style="margin-top:0; font-size:2.2rem; letter-spacing:-0.04em;">Let’s get your tech sorted</h2>
+    <h2>Let’s get your tech sorted</h2>
     <p>
       Book a free call, send me an email, or give me a ring and I’ll point you in the right direction straight away.
       If it sounds like a fit, we’ll take it from there.
     </p>
+
     <div class="cta-actions">
-      <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+      <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free 5-Min Call</a>
       <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
       <a class="btn btn-secondary" href="mailto:fix@jaredtalbot.com">Email Me</a>
     </div>
@@ -579,30 +666,33 @@
 </section>
 
 <section class="section">
-  <div class="container">
+  <div class="container faq-wrap">
     <h2 class="section-title">FAQ</h2>
-    <div class="grid" style="max-width:860px; margin:0 auto;">
-      <details>
-        <summary>What areas do you cover?</summary>
-        <p>Wexford — based near Oylegate, covering roughly 20km. If you’re slightly outside the area, still get in touch and I’ll let you know.</p>
-      </details>
-      <details>
-        <summary>How long do visits usually take?</summary>
-        <p>Most jobs are 30–90 minutes. If it’s not improving within 20–30 minutes, I’ll tell you straight away and recommend the best next step.</p>
-      </details>
-      <details>
-        <summary>Do you need my passwords?</summary>
-        <p>No banking passwords ever. For accounts like email or Apple ID, I’ll guide you through the official steps where needed, but I won’t bypass security checks.</p>
-      </details>
-      <details>
-        <summary>What if you can’t fix it?</summary>
-        <p>If I can’t improve the issue or give a clear diagnosis and best next step, you only pay the call-out.</p>
-      </details>
-      <details>
-        <summary>Do you offer a pensioner discount?</summary>
-        <p>Yes. Just mention it when you get in touch and I’ll apply it.</p>
-      </details>
-    </div>
+
+    <details>
+      <summary>What areas do you cover?</summary>
+      <p>Wexford — based near Oylegate, covering roughly 20km. If you’re slightly outside the area, still get in touch and I’ll let you know.</p>
+    </details>
+
+    <details>
+      <summary>How long do visits usually take?</summary>
+      <p>Most jobs are 30–90 minutes. If it’s not improving within 20–30 minutes, I’ll tell you straight away and recommend the best next step.</p>
+    </details>
+
+    <details>
+      <summary>Do you need my passwords?</summary>
+      <p>No banking passwords ever. For accounts like email or Apple ID, I’ll guide you through the official steps where needed, but I won’t bypass security checks.</p>
+    </details>
+
+    <details>
+      <summary>What if you can’t fix it?</summary>
+      <p>If I can’t improve the issue or give a clear diagnosis and best next step, you only pay the call-out.</p>
+    </details>
+
+    <details>
+      <summary>Do you offer a pensioner discount?</summary>
+      <p>Yes. Just mention it when you get in touch and I’ll apply it.</p>
+    </details>
   </div>
 </section>
 
@@ -612,7 +702,7 @@
     <div class="footer-links">
       <a href="tel:+353892183492">📞 +353 89 218 3492</a>
       <a href="mailto:fix@jaredtalbot.com">📧 fix@jaredtalbot.com</a>
-      <a href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">📅 Book Free Call</a>
+      <a href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">📅 Book Free 5-Min Call</a>
     </div>
   </div>
 </footer>
