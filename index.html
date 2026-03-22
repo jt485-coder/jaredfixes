@@ -6,32 +6,40 @@
   <title>Jared Fixes | Tech Help Made Simple</title>
   <meta
     name="description"
-    content="Friendly, no-jargon IT support in Wexford and beyond — from slow laptops to smart AI setups. Local or remote, Jared Fixes has you covered."
+    content="Friendly, no-jargon IT support in Wexford and beyond — from quick fixes and device setup to smart AI help. Local or remote, Jared Fixes keeps things simple."
   />
   <style>
     :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --surface-2: #eef3f8;
-      --text: #132238;
-      --muted: #5a6a7d;
+      --bg: #08111d;
+      --bg-2: #0d1b2c;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --surface-3: #ffffff;
+      --text: #edf3fb;
+      --text-dark: #132238;
+      --muted: #b4c0d0;
+      --muted-dark: #5a6a7d;
       --primary: #0f4c75;
-      --primary-2: #1b6ca8;
       --accent: #ff6a00;
       --accent-2: #ff8840;
-      --border: #d7e1eb;
-      --shadow: 0 12px 30px rgba(15, 76, 117, 0.12);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
       --radius: 22px;
-      --max: 1120px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+      background:
+        radial-gradient(circle at top left, rgba(255,106,0,0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,76,117,0.22), transparent 28%),
+        linear-gradient(180deg, #07111d 0%, #08111d 100%);
       line-height: 1.55;
     }
 
@@ -51,6 +59,7 @@
       font-weight: 700;
       display: inline-block;
       transition: 0.2s ease;
+      border: 1px solid transparent;
     }
 
     .btn:hover {
@@ -60,20 +69,22 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: white;
+      box-shadow: 0 10px 26px rgba(255, 106, 0, 0.25);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
       color: white;
+      border-color: rgba(255, 255, 255, 0.14);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(8, 17, 29, 0.82);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
@@ -85,8 +96,20 @@
     }
 
     .brand {
-      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.08rem;
       font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 16px rgba(255, 106, 0, 0.45);
     }
 
     .contact-bar {
@@ -100,64 +123,120 @@
     }
 
     .hero {
-      padding: 88px 0;
-      background: linear-gradient(135deg, #0d2940, #1d5d8e);
-      color: white;
+      padding: 82px 0 44px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin: 0 0 16px;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      max-width: 10ch;
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .hero p {
-      max-width: 640px;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
+    .hero-inner {
+      padding: 34px;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .hero-pill {
       display: inline-block;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
       font-weight: 600;
+      color: var(--text);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.45rem, 5vw, 4.2rem);
+      margin: 0 0 16px;
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      max-width: 11ch;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      max-width: 640px;
+      margin: 0 0 20px;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-subline {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 24px;
+    }
+
+    .note-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-top: 18px;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
     .section {
-      padding: 60px 0;
+      padding: 28px 0 64px;
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin: 0 0 10px;
+      line-height: 1.08;
       text-align: center;
-      margin-bottom: 10px;
-      line-height: 1.1;
+      letter-spacing: -0.04em;
     }
 
     .section-sub {
       text-align: center;
       color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 30px;
+      max-width: 700px;
+      margin: 0 auto 28px;
     }
 
     .grid {
@@ -165,8 +244,12 @@
       gap: 20px;
     }
 
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .card {
@@ -177,22 +260,91 @@
       box-shadow: var(--shadow);
     }
 
-    .card p {
-      margin-bottom: 0;
+    .card h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+      font-size: 1.22rem;
     }
 
-    .highlight {
-      background: var(--primary);
-      color: white;
-      border-radius: var(--radius);
-      padding: 30px;
-      text-align: center;
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .card li { margin-bottom: 8px; }
+
+    .band {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
       box-shadow: var(--shadow);
     }
 
-    .highlight p {
-      max-width: 700px;
+    .price-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .price-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .price-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cta-band {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,76,117,0.92), rgba(15,76,117,0.84));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 34px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band p {
+      color: #d9e7f5;
+      max-width: 720px;
       margin: 0 auto;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    details {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
     }
 
     footer {
@@ -209,6 +361,14 @@
       flex-wrap: wrap;
     }
 
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 780px) {
       .nav {
         flex-direction: column;
@@ -220,14 +380,21 @@
       }
 
       .hero {
-        padding: 72px 0;
+        padding: 72px 0 34px;
       }
 
-      .hero h1 {
-        max-width: none;
+      .hero-inner,
+      .band,
+      .cta-band {
+        padding: 22px;
       }
 
-      .hero-actions {
+      .hero-copy h1 {
+        max-width: 9ch;
+      }
+
+      .hero-actions,
+      .cta-actions {
         flex-direction: column;
         align-items: stretch;
       }
@@ -243,7 +410,7 @@
 
 <header>
   <div class="container nav">
-    <div class="brand">Jared Fixes</div>
+    <div class="brand"><span class="brand-dot"></span> Jared Fixes</div>
     <div class="contact-bar">
       <span>Tech help made simple</span>
       <a href="tel:+353892183492">📞 +353 89 218 3492</a>
@@ -253,64 +420,51 @@
 </header>
 
 <section class="hero">
-  <div class="container">
-    <div class="hero-meta">
-      <span class="hero-pill">Serving Wexford &amp; surrounding areas</span>
-      <span class="hero-pill">Same-day help available — local &amp; remote</span>
-    </div>
-
-    <h1>Tech problems? I’ll fix them.</h1>
-
-    <p>
-      No jargon. No stress. Just clear, honest help — whether your computer is broken,
-      slow, or you want to understand tools like AI.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
-      <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid grid-3">
-    <div class="card">
-      <strong>✔ Real-world experience</strong>
-      <p>I solve real problems — quickly and clearly.</p>
-    </div>
-    <div class="card">
-      <strong>✔ Friendly support</strong>
-      <p>No tech talk. I explain things simply.</p>
-    </div>
-    <div class="card">
-      <strong>✔ No fix, no fee</strong>
-      <p>If I can’t help, you don’t pay.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Meet Jared</h2>
-    <p class="section-sub">
-      I help people fix their tech and actually understand it.
-    </p>
-    <div class="grid grid-3">
-      <div class="card">
-        <p>
-          Tech shouldn’t feel confusing or overwhelming. My job is to simplify it.
-        </p>
+  <div class="container hero-card">
+    <div class="hero-inner">
+      <div class="hero-meta">
+        <span class="hero-pill">Serving Wexford &amp; surrounding areas</span>
+        <span class="hero-pill">Same-day help available — local &amp; remote</span>
       </div>
-      <div class="card">
-        <p>
-          Whether it’s fixing a laptop or setting up AI tools, I guide you step by step.
-        </p>
-      </div>
-      <div class="card">
-        <p>
-          You’ll leave with working tech — and confidence to use it.
-        </p>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Tech problems? I’ll fix them.</h1>
+          <div class="hero-subline">No jargon. No stress. Fast, clear help when you need it.</div>
+          <p>
+            Phones, PCs, printers, Wi-Fi, email setup, device security, and beginner-friendly AI help.
+            I keep things simple and tell you straight if something is worth fixing, improving, or replacing.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+            <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
+          </div>
+
+          <div class="note-box">
+            <strong style="color:#fff; display:block; margin-bottom:6px;">Quick note</strong>
+            Yes, the website name says Jared Fixes — and that’s the point. Clear, local IT help with a modern edge, including simple AI support where it makes sense.
+          </div>
+        </div>
+
+        <div class="trust-list">
+          <div class="mini-card">
+            <strong>✔ Real-world experience</strong>
+            I solve real problems quickly and clearly.
+          </div>
+          <div class="mini-card">
+            <strong>✔ Friendly support</strong>
+            No tech talk. I explain things simply.
+          </div>
+          <div class="mini-card">
+            <strong>✔ No fix, no fee</strong>
+            If I can’t help, you don’t pay.
+          </div>
+          <div class="mini-card">
+            <strong>✔ Honest guidance</strong>
+            If it’s not improving within 20–30 minutes, I’ll tell you straight and recommend the best next step.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -319,42 +473,135 @@
 <section class="section">
   <div class="container">
     <h2 class="section-title">What I can help with</h2>
-    <p class="section-sub">Simple solutions for everyday tech problems.</p>
+    <p class="section-sub">Simple solutions for everyday tech problems — plus smart help with AI, security basics, and digital setup.</p>
     <div class="grid grid-3">
       <div class="card">
-        <strong>💻 Repairs</strong>
-        <p>Slow computers, crashes, viruses, setup.</p>
+        <h3>💻 Device & repair help</h3>
+        <ul>
+          <li>Phone cleanup and speed-up basics</li>
+          <li>Slow PCs, tidy-ups, updates, startup cleanup</li>
+          <li>Printer setup and reconnect issues</li>
+          <li>Wi-Fi basics and reconnecting devices</li>
+          <li>Storage full or slow device clean-up</li>
+        </ul>
       </div>
       <div class="card">
-        <strong>🤖 AI Help</strong>
-        <p>ChatGPT, automation, simple workflows.</p>
+        <h3>🔐 Setup & security basics</h3>
+        <ul>
+          <li>Email and WhatsApp setup</li>
+          <li>Password manager setup</li>
+          <li>Two-factor authentication help</li>
+          <li>Quick security check and scam hygiene</li>
+          <li>General device setup and support</li>
+        </ul>
       </div>
       <div class="card">
-        <strong>🔐 Digital Setup</strong>
-        <p>Email, backups, devices, general help.</p>
+        <h3>🤖 AI help</h3>
+        <ul>
+          <li>ChatGPT setup and beginner guidance</li>
+          <li>Simple automation and workflow ideas</li>
+          <li>AI tools for home users and small businesses</li>
+          <li>Help choosing useful tools without overwhelm</li>
+          <li>Practical, plain-English support</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container highlight">
-    <h2>No Fix — No Fee</h2>
-    <p>If I can’t solve your problem, you don’t pay. Simple as that.</p>
+  <div class="container grid grid-2">
+    <div class="band">
+      <h2 style="margin-top:0; font-size:2rem; letter-spacing:-0.04em;">Pricing</h2>
+      <div class="price-stack">
+        <div class="price-item">
+          <strong>€30 call-out (includes the first 30 minutes)</strong>
+          Then €30 per extra 30 minutes if needed.
+        </div>
+        <div class="price-item">
+          <strong>“No fix, no pay” (except the call-out)</strong>
+          If I can’t improve the problem or give a clear diagnosis + best next step, you only pay the call-out.
+        </div>
+        <div class="price-item">
+          <strong>Pensioner discount</strong>
+          Ask when you contact me and I’ll apply it.
+        </div>
+      </div>
+      <p style="color:var(--muted); margin:16px 0 0;">Every visit ends with one of these: fixed, improved, or diagnosed with the best route forward.</p>
+    </div>
+
+    <div class="band">
+      <h2 style="margin-top:0; font-size:2rem; letter-spacing:-0.04em;">Boundaries</h2>
+      <ul>
+        <li>No complex hardware repairs, soldering, or parts installs</li>
+        <li>No deep data recovery or hacked-account investigations</li>
+        <li>No cracked or dodgy software installs</li>
+        <li>I won’t ask for banking passwords — ever</li>
+        <li>No bypassing locks or account checks</li>
+        <li>No business servers or large office networks</li>
+      </ul>
+      <p style="color:var(--muted); margin:16px 0 0;">If you’re locked out of Apple, Google, or Microsoft accounts, we follow the official recovery steps. I can help guide the process, but I won’t bypass it.</p>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container highlight">
-    <h2>Let’s get your tech sorted</h2>
+  <div class="container">
+    <h2 class="section-title">Meet Jared</h2>
+    <p class="section-sub">I help people fix their tech and actually understand it.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <p>Tech shouldn’t feel confusing or overwhelming. My job is to simplify it.</p>
+      </div>
+      <div class="card">
+        <p>Whether it’s fixing a laptop, sorting your Wi-Fi, or setting up AI tools, I guide you step by step.</p>
+      </div>
+      <div class="card">
+        <p>You’ll leave with working tech — and confidence to use it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta-band">
+    <h2 style="margin-top:0; font-size:2.2rem; letter-spacing:-0.04em;">Let’s get your tech sorted</h2>
     <p>
-      Book a free call, send me an email, or give me a ring and I’ll point you in the
-      right direction straight away.
+      Book a free call, send me an email, or give me a ring and I’ll point you in the right direction straight away.
+      If it sounds like a fit, we’ll take it from there.
     </p>
-    <div class="cta-actions" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
+    <div class="cta-actions">
       <a class="btn btn-primary" href="https://cal.eu/jaredtalbot/fix" target="_blank" rel="noopener noreferrer">Book Free Call</a>
       <a class="btn btn-secondary" href="tel:+353892183492">Call Now</a>
       <a class="btn btn-secondary" href="mailto:fix@jaredtalbot.com">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">FAQ</h2>
+    <div class="grid" style="max-width:860px; margin:0 auto;">
+      <details>
+        <summary>What areas do you cover?</summary>
+        <p>Wexford — based near Oylegate, covering roughly 20km. If you’re slightly outside the area, still get in touch and I’ll let you know.</p>
+      </details>
+      <details>
+        <summary>How long do visits usually take?</summary>
+        <p>Most jobs are 30–90 minutes. If it’s not improving within 20–30 minutes, I’ll tell you straight away and recommend the best next step.</p>
+      </details>
+      <details>
+        <summary>Do you need my passwords?</summary>
+        <p>No banking passwords ever. For accounts like email or Apple ID, I’ll guide you through the official steps where needed, but I won’t bypass security checks.</p>
+      </details>
+      <details>
+        <summary>What if you can’t fix it?</summary>
+        <p>If I can’t improve the issue or give a clear diagnosis and best next step, you only pay the call-out.</p>
+      </details>
+      <details>
+        <summary>Do you offer a pensioner discount?</summary>
+        <p>Yes. Just mention it when you get in touch and I’ll apply it.</p>
+      </details>
     </div>
   </div>
 </section>
