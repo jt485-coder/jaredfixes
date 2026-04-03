@@ -1,0 +1,91 @@
+{
+  "theme": "dark",
+  "archetype": "Jewel & Luxury combined with Organic/Earthy warmth",
+  "colors": {
+    "background": "#0a0a0a",
+    "surface": "#141414",
+    "surface_hover": "#1a1a1a",
+    "primary": "#ff6a00",
+    "primary_hover": "#ff8840",
+    "text_main": "#ffffff",
+    "text_muted": "#a3a3a3",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "glass_bg": "rgba(10, 10, 10, 0.6)"
+  },
+  "typography": {
+    "heading_font": "Manrope",
+    "body_font": "Work Sans",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+    "h3": "text-xl sm:text-2xl font-semibold",
+    "body": "text-base leading-relaxed",
+    "small": "text-sm text-muted-foreground uppercase tracking-widest"
+  },
+  "layout": {
+    "container_padding": "px-4 md:px-8 lg:px-12",
+    "section_spacing": "py-24",
+    "border_radius": "rounded-2xl"
+  },
+  "components": {
+    "navigation": {
+      "style": "sticky top-0 z-50 backdrop-blur-xl bg-black/60 border-b border-white/10",
+      "links": ["Services", "Pricing", "FAQ"],
+      "cta": "Request Help"
+    },
+    "hero": {
+      "overlay": "bg-black/40",
+      "alignment": "text-center or left-aligned with abstract image",
+      "trust_badges": ["Real-world experience", "Friendly support", "No fix, no fee", "Honest guidance"]
+    },
+    "cards": {
+      "style": "bg-[#141414] border border-white/10 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-2xl hover:border-white/20 transition-all duration-300"
+    },
+    "buttons": {
+      "primary": "bg-[#ff6a00] hover:bg-[#ff8840] text-white rounded-full px-8 py-3 font-semibold transition-colors"
+    },
+    "contact_form": {
+      "fields": ["Name", "Email", "Message"],
+      "honeypot": "Hidden input field for spam protection",
+      "submit_text": "Send Message"
+    }
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/a24ac5c2-41f8-4d43-be8d-84576f2adee5/images/cadb73e9e2c2c1765937852564208a2b66d0a7c6ee84e5c6840f523478f27458.png",
+        "category": "hero_bg",
+        "description": "Abstract dark premium background with warm orange glow for Hero section"
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/a24ac5c2-41f8-4d43-be8d-84576f2adee5/images/e8fba8a4ee231159c01d7b486068da16bd89230b6e73ad86da1b26264f709b64.png",
+        "category": "services",
+        "description": "Abstract device and security representation for Services section"
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/a24ac5c2-41f8-4d43-be8d-84576f2adee5/images/4c6eced4831a55d68e528bd42afeccb4c090da044336235079975cc103be1c8e.png",
+        "category": "ai_help",
+        "description": "Abstract warm friendly AI nodes for AI Help section"
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/a24ac5c2-41f8-4d43-be8d-84576f2adee5/images/a8aeef933dfa7928df3915803b3d83a95bca6d4e9573c3a32ff58cef4a21975f.png",
+        "category": "trust",
+        "description": "Abstract 3D shapes representing trust and structure for Boundaries/How it Works section"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Import Manrope and Work Sans from Google Fonts in index.html.",
+    "Build a modern React landing page using Tailwind CSS and Lucide React icons.",
+    "Use Manrope for headings and Work Sans for body text. Do not use Inter for headings.",
+    "No visible email addresses or phone numbers. Replace with a Netlify-ready contact form that includes a hidden honeypot field.",
+    "Ensure 'No fix, no fee', €30 call-out, and Pensioner discount are highlighted in the Pricing section.",
+    "Use subtle framer-motion animations (fade-in, slide-up) for section entrances. No flashy particles.",
+    "Implement a sticky navigation with 'backdrop-blur-xl' and a primary CTA button.",
+    "Create a specific section delineating 'Home Users' vs 'Small Businesses' based on the core purpose.",
+    "Include an 'AI Help' section using the provided AI abstract image, framing AI help as practical and beginner-friendly.",
+    "Include a 'Boundaries' section clearly listing what is NOT covered.",
+    "Use Shadcn UI Accordion for the FAQ section.",
+    "Every interactive element must have a 'data-testid' attribute.",
+    "Link to jaredtalbot.com in the minimal footer."
+  ]
+}
