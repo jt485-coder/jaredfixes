@@ -819,33 +819,63 @@ const FinalCTA = ({ onOpenContact }) => {
 const ContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
-    contact: '',
+    email: '',
+    phone: '',
     message: '',
     honeypot: '' // Hidden spam field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
-  const handleSubmit = (e) => {
+  // URL-encode form data for Netlify Forms
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // If honeypot is filled, it's a bot
+    // If honeypot is filled, it's a bot - silently reject
     if (formData.honeypot) {
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission (ready for Netlify Forms integration)
-    setTimeout(() => {
+    setSubmitError(false);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          'bot-field': formData.honeypot,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          onClose();
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+        }, 2000);
+      } else {
+        setSubmitError(true);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError(true);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        onClose();
-        setIsSubmitted(false);
-        setFormData({ name: '', contact: '', message: '', honeypot: '' });
-      }, 2000);
-    }, 1000);
+    }
   };
 
   return (
@@ -897,11 +927,25 @@ const ContactModal = ({ isOpen, onClose }) => {
                   Tell me what's going on and I'll get back to you with a clear next step.
                 </p>
 
-                <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" data-testid="contact-form">
+                {submitError && (
+                  <div className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                    Something went wrong. Please try again or contact me directly.
+                  </div>
+                )}
+
+                <form 
+                  onSubmit={handleSubmit} 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  data-testid="contact-form"
+                >
+                  {/* Hidden field for Netlify form name */}
                   <input type="hidden" name="form-name" value="contact" />
                   
                   {/* Honeypot field - hidden from users */}
-                  <div className="hidden" aria-hidden="true">
+                  <p className="hidden" aria-hidden="true">
                     <label>
                       Don't fill this out if you're human:
                       <input
@@ -912,7 +956,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                         autoComplete="off"
                       />
                     </label>
-                  </div>
+                  </p>
 
                   <div className="space-y-4">
                     <div>
@@ -931,17 +975,31 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div>
-                      <label htmlFor="contact" className="block text-sm font-medium mb-2">Email or phone</label>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
                       <input
-                        type="text"
-                        id="contact"
-                        name="contact"
+                        type="email"
+                        id="email"
+                        name="email"
                         required
-                        data-testid="contact-form-contact"
-                        value={formData.contact}
-                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                        data-testid="contact-form-email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
-                        placeholder="your@email.com or phone number"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone <span className="text-text-muted font-normal">(optional)</span></label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        data-testid="contact-form-phone"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                        placeholder="Your phone number"
                       />
                     </div>
 
