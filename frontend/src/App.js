@@ -89,7 +89,7 @@ const Navigation = ({ onOpenContact }) => {
               data-testid="nav-cta-button"
               className="bg-primary hover:bg-primary-hover text-white rounded-full px-6 py-2.5 font-semibold transition-all duration-200 hover:-translate-y-0.5"
             >
-              Request Help
+              Get in Touch
             </button>
           </div>
 
@@ -131,7 +131,7 @@ const Navigation = ({ onOpenContact }) => {
                   data-testid="mobile-cta-button"
                   className="bg-primary hover:bg-primary-hover text-white rounded-full px-6 py-3 font-semibold transition-colors"
                 >
-                  Request Help
+                  Get in Touch
                 </button>
               </div>
             </motion.div>
@@ -153,8 +153,8 @@ const Hero = ({ onOpenContact }) => {
 
   return (
     <section data-testid="hero-section" className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-900/10 pointer-events-none" />
+      {/* Background gradient - warm orange glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-primary/3 pointer-events-none" />
       
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative">
         <motion.div
@@ -163,11 +163,11 @@ const Hero = ({ onOpenContact }) => {
           variants={staggerContainer}
           className="bg-surface/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl"
         >
-          {/* Location badges */}
+          {/* Location badges - LOCAL TRUST prominent */}
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-white">
               <MapPin size={14} className="text-primary" />
-              Serving Wexford & surrounding areas
+              Local tech help in Wexford
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">
               <Clock size={14} className="text-primary" />
@@ -208,14 +208,14 @@ const Hero = ({ onOpenContact }) => {
                   data-testid="hero-cta-primary"
                   className="bg-primary hover:bg-primary-hover text-white rounded-full px-8 py-4 font-semibold transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-primary/25"
                 >
-                  Request Help
+                  Get in Touch
                 </button>
                 <a
                   href="#services"
                   data-testid="hero-cta-secondary"
                   className="bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full px-8 py-4 font-semibold transition-all duration-200"
                 >
-                  Learn More
+                  See How I Help
                 </a>
               </motion.div>
 
@@ -524,9 +524,9 @@ const AIHelp = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="bg-gradient-to-br from-surface via-surface to-blue-900/20 border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden relative"
+          className="bg-surface border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden relative"
         >
-          {/* Decorative gradient */}
+          {/* Subtle warm glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="relative grid lg:grid-cols-2 gap-10 items-center">
@@ -547,13 +547,13 @@ const AIHelp = () => {
               </motion.h2>
               
               <motion.p variants={fadeInUp} className="text-text-muted text-lg mb-8">
-                I help home users and small businesses get started with AI tools like ChatGPT — without the hype or confusion.
-                Whether you're curious about what AI can do or need help setting it up, I'll keep it simple and useful.
+                I help home users and small businesses get started with modern AI tools — without the hype or confusion.
+                Whether you're curious about what AI can actually do or need help setting it up, I'll keep it simple, useful, and tailored to you.
               </motion.p>
 
               <motion.ul variants={staggerContainer} className="space-y-3">
                 {[
-                  'Beginner-friendly ChatGPT setup and guidance',
+                  'Beginner-friendly setup and guidance (ChatGPT and other AI tools)',
                   'Practical workflow ideas for everyday tasks',
                   'Help choosing the right tools without overwhelm',
                   'Custom AI support available on request'
@@ -646,7 +646,7 @@ const Audience = ({ onOpenContact }) => {
             data-testid="audience-small-business"
             className="bg-surface border border-white/10 rounded-3xl p-8 md:p-10 hover:border-primary/30 transition-all duration-300"
           >
-            <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
               <Briefcase size={28} />
             </div>
             <h3 className="font-heading text-2xl font-semibold mb-4">Small Businesses</h3>
@@ -661,7 +661,7 @@ const Audience = ({ onOpenContact }) => {
                 'Custom solutions on request'
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
-                  <CheckCircle2 size={14} className="text-blue-400 flex-shrink-0" />
+                  <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -788,22 +788,27 @@ const FinalCTA = ({ onOpenContact }) => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border border-white/10 rounded-3xl p-10 md:p-14 text-center"
+          className="bg-gradient-to-br from-surface via-surface to-primary/10 border border-white/10 rounded-3xl p-10 md:p-14 text-center relative overflow-hidden"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Let's get your tech sorted
-          </h2>
-          <p className="text-blue-100/80 text-lg mb-8 max-w-xl mx-auto">
-            Send me a message and I'll point you in the right direction straight away.
-            If it sounds like a fit, we'll take it from there.
-          </p>
-          <button
-            onClick={onOpenContact}
-            data-testid="final-cta-button"
-            className="bg-primary hover:bg-primary-hover text-white rounded-full px-10 py-4 font-semibold transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-primary/25"
-          >
-            Request Help
-          </button>
+          {/* Subtle warm glow */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none" />
+          
+          <div className="relative">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+              Let's get your tech sorted
+            </h2>
+            <p className="text-text-muted text-lg mb-8 max-w-xl mx-auto">
+              Send me a message and I'll point you in the right direction straight away.
+              If it sounds like a fit, we'll take it from there.
+            </p>
+            <button
+              onClick={onOpenContact}
+              data-testid="final-cta-button"
+              className="bg-primary hover:bg-primary-hover text-white rounded-full px-10 py-4 font-semibold transition-all duration-200 hover:-translate-y-1 shadow-lg shadow-primary/25"
+            >
+              Get in Touch
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -814,7 +819,7 @@ const FinalCTA = ({ onOpenContact }) => {
 const ContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    contact: '',
     message: '',
     honeypot: '' // Hidden spam field
   });
@@ -838,7 +843,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       setTimeout(() => {
         onClose();
         setIsSubmitted(false);
-        setFormData({ name: '', email: '', message: '', honeypot: '' });
+        setFormData({ name: '', contact: '', message: '', honeypot: '' });
       }, 2000);
     }, 1000);
   };
@@ -887,9 +892,9 @@ const ContactModal = ({ isOpen, onClose }) => {
               </div>
             ) : (
               <>
-                <h3 className="font-heading text-2xl font-semibold mb-2">Get in touch</h3>
+                <h3 className="font-heading text-2xl font-semibold mb-2">Ask a quick question</h3>
                 <p className="text-text-muted mb-6">
-                  Describe your tech problem and I'll get back to you quickly with a clear next step.
+                  Tell me what's going on and I'll get back to you with a clear next step.
                 </p>
 
                 <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" data-testid="contact-form">
@@ -926,32 +931,32 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                      <label htmlFor="contact" className="block text-sm font-medium mb-2">Email or phone</label>
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="text"
+                        id="contact"
+                        name="contact"
                         required
-                        data-testid="contact-form-email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        data-testid="contact-form-contact"
+                        value={formData.contact}
+                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
-                        placeholder="your@email.com"
+                        placeholder="your@email.com or phone number"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2">What's the problem?</label>
                       <textarea
                         id="message"
                         name="message"
                         required
-                        rows={4}
+                        rows={3}
                         data-testid="contact-form-message"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors resize-none"
-                        placeholder="Describe your tech problem..."
+                        placeholder="Briefly describe your tech issue..."
                       />
                     </div>
 
