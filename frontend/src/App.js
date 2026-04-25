@@ -653,8 +653,11 @@ const Audience = ({ onOpenContact }) => {
               <Home size={28} />
             </div>
             <h3 className="font-heading text-2xl font-semibold mb-4">Home Users</h3>
+            <p className="text-text-muted mb-4">
+              My main focus. Whether it's a slow laptop or phone, a device full of photos and videos, or concerns around security as technology moves fast, I keep things simple and under control.
+            </p>
             <p className="text-text-muted mb-6">
-              My main focus. Whether it's a slow laptop, printer problems, Wi-Fi issues, or help getting started with new technology — I make it simple.
+              I help with data, storage, accounts, websites, systems, and AI. Clear, practical support so you always know what's going on and what to do next.
             </p>
             <ul className="space-y-2">
               {[
@@ -681,15 +684,18 @@ const Audience = ({ onOpenContact }) => {
               <Briefcase size={28} />
             </div>
             <h3 className="font-heading text-2xl font-semibold mb-4">Small Businesses</h3>
+            <p className="text-text-muted mb-4">
+              I also help small businesses with simple, practical tech support and modern tools. From getting online to improving how things run day to day, I focus on what actually helps.
+            </p>
             <p className="text-text-muted mb-6">
-              I also help small businesses with practical tech support and simple AI guidance. If you need something more custom, get in touch and I'll let you know what's realistic.
+              If you need something more custom, get in touch and I'll let you know what's realistic.
             </p>
             <ul className="space-y-2">
               {[
-                'Basic IT support and troubleshooting',
+                'Basic tech support and troubleshooting',
                 'Security and backup guidance',
                 'AI tools for productivity',
-                'Custom solutions on request'
+                'Simple website and online setup'
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
                   <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
