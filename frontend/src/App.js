@@ -172,6 +172,9 @@ const Hero = ({ onOpenContact }) => {
               <MapPin size={14} className="text-primary" />
               Local tech help in Wexford
             </span>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-text-muted">
+              Based near Oylegate, serving Wexford and surrounding areas.
+            </span>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-10 items-start">
