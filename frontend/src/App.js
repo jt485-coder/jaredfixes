@@ -200,7 +200,7 @@ const Hero = ({ onOpenContact }) => {
                 className="text-text-muted text-lg mb-8 max-w-xl"
               >
                 Phones, PCs, storage, backup, email setup, and device security.
-                I keep things simple and tell you straight if something is worth fixing,
+                I keep things simple and tell you honestly whether something is worth fixing,
                 improving, or replacing.
               </motion.p>
 
