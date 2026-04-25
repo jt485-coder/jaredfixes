@@ -691,7 +691,7 @@ const Audience = ({ onOpenContact }) => {
               I also help small businesses with simple, practical tech support and modern tools. From getting online to improving how things run day to day, I focus on what actually helps.
             </p>
             <p className="text-text-muted mb-6">
-              If you need something more custom, get in touch and I'll let you know what's realistic.
+              If you need something more custom, get in touch and I’ll let you know what’s realistic. Most things can be improved with the right approach.
             </p>
             <ul className="space-y-2">
               {[
