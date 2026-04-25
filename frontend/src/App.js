@@ -389,9 +389,9 @@ const Services = () => {
 // How It Works Section
 const HowItWorks = ({ onOpenContact }) => {
   const steps = [
-    { number: '01', title: 'Get in touch', desc: 'Describe your problem using the contact form.' },
+    { number: '01', title: 'Get in touch', desc: 'Describe your problem using the contact form, or just ask me to get in touch.' },
     { number: '02', title: 'Quick assessment', desc: 'I\'ll get back to you quickly with a clear idea of what we\'re dealing with and how I can help.' },
-    { number: '03', title: 'Problem solved', desc: 'Visit, remote session, or simple guidance — I\'ll fix it, improve it, or give you honest next steps.' }
+    { number: '03', title: 'Problem solved', desc: 'Visit, remote session, or simple guidance... I\'ll fix it, improve it, or give you honest next steps.' }
   ];
 
   return (
