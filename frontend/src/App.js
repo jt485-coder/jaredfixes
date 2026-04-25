@@ -578,13 +578,13 @@ const AIHelp = () => {
               </motion.h2>
               
               <motion.p variants={fadeInUp} className="text-text-muted text-lg mb-8">
-                I help home users and small businesses get started with modern AI tools — without the hype or confusion.
+                I help home users and small businesses get started with modern AI tools. No hype or confusion.
                 Whether you're curious about what AI can actually do or need help setting it up, I'll keep it simple, useful, and tailored to you.
               </motion.p>
 
               <motion.ul variants={staggerContainer} className="space-y-3">
                 {[
-                  'Beginner-friendly setup and guidance (ChatGPT and other AI tools)',
+                  'Beginner-friendly setup and guidance (ChatGPT, Claude and more)',
                   'Practical workflow ideas for everyday tasks',
                   'Help choosing the right tools without overwhelm',
                   'Custom AI support available on request'
