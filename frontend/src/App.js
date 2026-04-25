@@ -20,7 +20,10 @@ import {
   Send,
   ExternalLink,
   Wrench,
-  BadgeCheck
+  BadgeCheck,
+  HardDrive,
+  Globe,
+  Film
 } from 'lucide-react';
 
 // Animation variants
@@ -148,7 +151,7 @@ const Hero = ({ onOpenContact }) => {
     { icon: <BadgeCheck size={20} />, title: 'Real-world experience', desc: 'I solve real problems quickly and clearly.' },
     { icon: <MessageCircle size={20} />, title: 'Friendly support', desc: 'No tech talk. I explain things simply.' },
     { icon: <CheckCircle2 size={20} />, title: 'No fix, no fee', desc: "If I can't help, you don't pay." },
-    { icon: <Shield size={20} />, title: 'Honest guidance', desc: "If it's not improving within 20–30 minutes, I'll tell you straight." }
+    { icon: <Shield size={20} />, title: 'Honest guidance', desc: "If it's not improving within 20–30 minutes, I'll tell you honestly." }
   ];
 
   return (
@@ -168,10 +171,6 @@ const Hero = ({ onOpenContact }) => {
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-white">
               <MapPin size={14} className="text-primary" />
               Local tech help in Wexford
-            </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">
-              <Clock size={14} className="text-primary" />
-              Same-day help available — local & remote
             </span>
           </motion.div>
 
@@ -197,8 +196,8 @@ const Hero = ({ onOpenContact }) => {
                 variants={fadeInUp}
                 className="text-text-muted text-lg mb-8 max-w-xl"
               >
-                Phones, PCs, printers, Wi-Fi, email setup, device security, and beginner-friendly
-                AI help. I keep things simple and tell you straight if something is worth fixing,
+                Phones, PCs, storage, backup, email setup, and device security.
+                I keep things simple and tell you straight if something is worth fixing,
                 improving, or replacing.
               </motion.p>
 
@@ -225,7 +224,7 @@ const Hero = ({ onOpenContact }) => {
               >
                 <p className="font-semibold text-white mb-1">Quick note</p>
                 <p className="text-text-muted text-sm">
-                  Clear, local IT help with a modern edge — including simple AI support where it makes sense.
+                  Clear, local IT help with a modern edge.
                 </p>
               </motion.div>
             </div>
@@ -261,35 +260,46 @@ const Services = () => {
   const services = [
     {
       icon: <Monitor size={28} />,
-      title: 'Device & repair help',
+      title: 'Devices & everyday fixes',
       items: [
-        'Phone cleanup and speed-up basics',
-        'Slow PCs, tidy-ups, updates, startup cleanup',
-        'Printer setup and reconnect issues',
-        'Wi-Fi basics and reconnecting devices',
-        'Storage full or slow device clean-up'
+        'Phone clean and update',
+        'Storage full and space recovery',
+        'Slow computer tidy-up and updates',
+        'Wi-Fi reconnect and basic fixes',
+        'Simple help understanding your device'
       ]
     },
     {
       icon: <Shield size={28} />,
-      title: 'Setup & security basics',
+      title: 'Accounts, security & setup',
       items: [
         'Email and WhatsApp setup',
         'Password manager setup',
-        'Two-factor authentication help',
-        'Quick security check and scam hygiene',
-        'General device setup and support'
+        'Two-step verification setup',
+        'Phone number and account security',
+        'Safer settings and scam awareness'
       ]
     },
     {
-      icon: <Cpu size={28} />,
-      title: 'AI help',
+      icon: <HardDrive size={28} />,
+      title: 'Backup & data management',
       items: [
-        'ChatGPT setup and beginner guidance',
-        'Simple automation and workflow ideas',
-        'AI tools for home users and small businesses',
-        'Help choosing useful tools without overwhelm',
-        'Practical, plain-English support'
+        'Google Photos and Drive backup setup',
+        'Photo and video backup',
+        'Storage organisation and clean structure',
+        'Moving data safely between devices',
+        'Keeping files safe long-term'
+      ]
+    },
+    {
+      icon: <Globe size={28} />,
+      title: 'Basic websites & online setup',
+      items: [
+        'Simple one-page websites',
+        'Domain and email setup',
+        'Small edits and updates',
+        'Help getting your business online',
+        'Practical AI tools for everyday use'
       ]
     }
   ];
@@ -314,7 +324,7 @@ const Services = () => {
             variants={fadeInUp}
             className="text-text-muted text-lg max-w-2xl mx-auto"
           >
-            Simple solutions for everyday tech problems — plus smart help with AI, security basics, and digital setup.
+            Simple solutions for everyday tech problems, smart help with AI, security basics, data management, backup solutions, and digital setups.
           </motion.p>
         </motion.div>
 
@@ -323,7 +333,7 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
@@ -346,6 +356,27 @@ const Services = () => {
               </ul>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Creative extras - subtle minimal section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          data-testid="creative-extras"
+          className="mt-12 max-w-2xl mx-auto text-center"
+        >
+          <div className="inline-flex items-center gap-2 text-primary/80 mb-3">
+            <Film size={16} />
+            <span className="text-xs font-semibold tracking-widest uppercase">Creative extras</span>
+          </div>
+          <p className="text-text-muted">
+            I can take your photos and videos and turn them into a simple, meaningful video with music. Something you can keep and watch anytime.
+          </p>
+          <p className="text-text-muted/70 text-sm mt-2">
+            Short highlights or longer story-style versions available.
+          </p>
         </motion.div>
       </div>
     </section>
@@ -428,14 +459,14 @@ const Pricing = () => {
     {
       highlight: true,
       title: '€30 call-out',
-      desc: 'Includes the first 30 minutes. Then €20 per extra 30 minutes if needed.'
+      desc: '€30 call-out includes the first 30 minutes. Extra time is €20 per additional 30 minutes.'
     },
     {
       title: 'No fix, no pay',
       desc: "If I can't improve the problem or give a clear diagnosis + best next step, you only pay the call-out."
     },
     {
-      title: 'Pensioner discount',
+      title: 'Senior discount (75+)',
       desc: "Ask when you contact me and I'll apply it."
     }
   ];
