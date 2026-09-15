@@ -125,3 +125,11 @@ Implemented:
 Verified: desktop + mobile screenshots (hero, services groups, pricing, enquiry modal), grep sweep confirms no leftover €30/call-out/no-fix/remote/20km wording. Form submission endpoint is Netlify (POST '/') — unchanged, only works on the deployed Netlify site.
 
 Backlog / not done: LocalBusiness schema markup, website portfolio/demo section (no invented claims allowed).
+
+## Refinement pass — June 2026 (design preserved)
+- Hero: single badge "Based in County Wexford"; second badge + "Quick note" box removed; intro shortened; "Clear pricing" → "We agree the work and cost before I start."
+- Services intro replaced with "Practical help with your website, your business tools and the technology you use at home."; "Keeping logins and details organised" → "Helping you manage your own account details safely"; group order unchanged.
+- Pricing reordered to match services (Website projects → Ongoing digital support €25/hr → Local home visits €40 highlighted, with "Additional time — €25 per hour, agreed before continuing" nested inside the home-visit item and the travel/coverage note beneath it). Senior discount removed (terms undefined).
+- Boundaries panel + red-cross list replaced by compact "A straightforward approach" block (data-testid="approach-section") under pricing; account-recovery explanation moved into the passwords FAQ.
+- Enquiry modal: new intro copy, full service names in selector, location relabelled "Town or area (optional, for home visits)", modal now max-h-[85vh] with internal scroll (verified at 390x600). Failure path keeps the typed message and shows the error banner.
+- Deployed Netlify form delivery remains UNVERIFIED until a test enquiry is confirmed received.

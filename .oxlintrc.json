@@ -1,3 +1,9 @@
 {
-  "ignorePatterns": ["**/node_modules/**", "**/build/**"]
+  "ignorePatterns": ["**/node_modules/**", "**/build/**"],
+  "globals": {
+    "task": "readonly",
+    "jake": "readonly",
+    "desc": "readonly",
+    "namespace": "readonly"
+  }
 }

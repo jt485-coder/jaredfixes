@@ -150,7 +150,7 @@ const Hero = ({ onOpenContact }) => {
   const trustBadges = [
     { icon: <BadgeCheck size={20} />, title: 'Websites & digital support', desc: 'Built, updated and looked after for you.' },
     { icon: <MessageCircle size={20} />, title: 'Patient, plain English', desc: 'No tech talk. I explain things simply.' },
-    { icon: <CheckCircle2 size={20} />, title: 'Clear pricing', desc: 'Time and cost agreed before any work continues.' },
+    { icon: <CheckCircle2 size={20} />, title: 'Clear pricing', desc: 'We agree the work and cost before I start.' },
     { icon: <Shield size={20} />, title: 'Honest guidance', desc: "If something isn't worth doing, I'll tell you straight." }
   ];
 
@@ -170,10 +170,7 @@ const Hero = ({ onOpenContact }) => {
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-white">
               <MapPin size={14} className="text-primary" />
-              Websites & tech help in County Wexford
-            </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-text-muted">
-              Based near Oylegate, serving Wexford and surrounding areas.
+              Based in County Wexford
             </span>
           </motion.div>
 
@@ -192,12 +189,11 @@ const Hero = ({ onOpenContact }) => {
                 variants={fadeInUp}
                 className="text-text-muted text-lg mb-8 max-w-xl"
               >
-                I'm Jared, based in County Wexford. I build and look after websites,
-                help organise your digital world, and provide patient support with
-                everyday technology—for your business or your home.
+                I'm Jared. I build and look after websites, help organise your digital world,
+                and offer patient technology support—for your business or your home.
               </motion.p>
 
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-8">
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                 <button
                   onClick={onOpenContact}
                   data-testid="hero-cta-primary"
@@ -212,16 +208,6 @@ const Hero = ({ onOpenContact }) => {
                 >
                   See How I Help
                 </a>
-              </motion.div>
-
-              <motion.div
-                variants={fadeInUp}
-                className="bg-white/5 border border-white/10 rounded-2xl p-5"
-              >
-                <p className="font-semibold text-white mb-1">Quick note</p>
-                <p className="text-text-muted text-sm">
-                  Send me your location when enquiring so I can confirm coverage.
-                </p>
               </motion.div>
             </div>
 
@@ -285,7 +271,7 @@ const serviceGroups = [
           'Domain name setup and renewals explained',
           'Business email set up correctly',
           'Getting your business online and findable',
-          'Keeping logins and details organised'
+          'Helping you manage your own account details safely'
         ]
       },
       {
@@ -371,8 +357,7 @@ const Services = () => {
             variants={fadeInUp}
             className="text-text-muted text-lg max-w-2xl mx-auto"
           >
-            Two sides to what I do—websites and digital support for your business, and patient
-            tech help at home. Have a scroll through both.
+            Practical help with your website, your business tools and the technology you use at home.
           </motion.p>
         </motion.div>
 
@@ -524,98 +509,80 @@ const HowItWorks = ({ onOpenContact }) => {
 const Pricing = () => {
   const pricingItems = [
     {
-      highlight: true,
-      title: 'Local home visits — €40',
-      desc: 'Includes local travel and the first hour of help.'
-    },
-    {
-      title: 'Additional time — €25 per hour',
-      desc: 'Always agreed with you before we continue.'
+      title: 'Website projects — quoted individually',
+      desc: 'Based on the agreed scope, with optional ongoing care.'
     },
     {
       title: 'Ongoing digital support — €25 per hour',
       desc: 'The work and estimated time are agreed beforehand.'
     },
     {
-      title: 'Website projects — quoted individually',
-      desc: 'Based on the agreed scope, with optional ongoing care.'
-    },
-    {
-      title: 'Senior discount (75+)',
-      desc: "Ask when you contact me and I'll apply it."
+      highlight: true,
+      title: 'Local home visits — €40',
+      desc: 'Including local travel and the first hour of help.',
+      sub: 'Additional time — €25 per hour, agreed before continuing.',
+      note: 'Send me your location when enquiring so I can confirm coverage. Any travel charge outside my local area will be agreed before you book.'
     }
   ];
 
   return (
     <section id="pricing" data-testid="pricing-section" className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Pricing Card */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="bg-gradient-to-br from-surface to-surface/50 border border-white/10 rounded-3xl p-8 md:p-10"
-          >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-8">Pricing</h2>
-            
-            <div className="space-y-4">
-              {pricingItems.map((item, index) => (
-                <div
-                  key={index}
-                  data-testid={`pricing-item-${index}`}
-                  className={`rounded-2xl p-5 border ${
-                    item.highlight
-                      ? 'bg-primary/10 border-primary/30'
-                      : 'bg-white/5 border-white/10'
-                  }`}
-                >
-                  <p className="font-semibold text-white mb-1">{item.title}</p>
-                  <p className="text-text-muted text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+      <div className="max-w-3xl mx-auto px-4 md:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="bg-gradient-to-br from-surface to-surface/50 border border-white/10 rounded-3xl p-8 md:p-10"
+        >
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-8">Pricing</h2>
 
-            <p className="text-text-muted mt-6 text-sm">
-              Send me your location when enquiring so I can confirm coverage. Any travel charge
-              outside my local area will be agreed before you book.
-            </p>
-          </motion.div>
+          <div className="space-y-4">
+            {pricingItems.map((item, index) => (
+              <div
+                key={index}
+                data-testid={`pricing-item-${index}`}
+                className={`rounded-2xl p-5 border ${
+                  item.highlight
+                    ? 'bg-primary/10 border-primary/30'
+                    : 'bg-white/5 border-white/10'
+                }`}
+              >
+                <p className="font-semibold text-white mb-1">{item.title}</p>
+                <p className="text-text-muted text-sm">{item.desc}</p>
+                {item.sub && (
+                  <p className="text-text-muted text-sm mt-3 pt-3 border-t border-white/10">
+                    {item.sub}
+                  </p>
+                )}
+                {item.note && (
+                  <p className="text-text-muted/70 text-xs mt-3">{item.note}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
-          {/* Boundaries Card */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            data-testid="boundaries-section"
-            className="bg-gradient-to-br from-surface to-surface/50 border border-white/10 rounded-3xl p-8 md:p-10"
-          >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-8">Boundaries</h2>
-            
-            <ul className="space-y-3">
-              {[
-                'No complex hardware repairs, soldering, or parts installs',
-                'No deep data recovery or hacked-account investigations',
-                'No cracked or dodgy software installs',
-                "I won't ask for banking passwords — ever",
-                'No bypassing locks or account checks',
-                'No business servers or large office networks'
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-text-muted">
-                  <X size={16} className="text-red-400 mt-1 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-text-muted mt-6 text-sm">
-              If you're locked out of Apple, Google, or Microsoft accounts, we follow the official recovery steps.
-              I can help guide the process, but I won't bypass it.
-            </p>
-          </motion.div>
-        </div>
+        {/* A straightforward approach - compact, welcoming */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          data-testid="approach-section"
+          className="mt-8 bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8"
+        >
+          <h3 className="font-heading text-xl font-semibold mb-3">A straightforward approach</h3>
+          <p className="text-text-muted text-sm mb-3">
+            We'll agree what you need and what it will cost before I start. You stay in control of
+            your accounts and enter your own passwords. I won't keep your passwords, recovery
+            phrases or security codes.
+          </p>
+          <p className="text-text-muted text-sm">
+            My focus is websites and everyday technology support. If a task needs specialist
+            hardware repair, data recovery or a security investigation, I'll explain that clearly.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -811,7 +778,7 @@ const FAQ = () => {
     },
     {
       question: 'Do you need my passwords?',
-      answer: "I won't ask you for passwords or security codes. For accounts like email or Apple ID, I'll sit with you and guide you through the official steps, but I won't bypass security checks."
+      answer: "No. You stay in control of your accounts and enter your own passwords, and I won't keep passwords, recovery phrases or security codes. If you're locked out of an Apple, Google or Microsoft account, we follow the official recovery steps together — I can guide you through the process, but I won't bypass it."
     },
     {
       question: 'Can you build or look after my website?',
@@ -1019,7 +986,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative bg-surface border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full shadow-2xl"
+            className="relative bg-surface border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full shadow-2xl max-h-[85vh] overflow-y-auto overscroll-contain"
           >
             <button
               onClick={onClose}
@@ -1041,8 +1008,8 @@ const ContactModal = ({ isOpen, onClose }) => {
               <>
                 <h3 className="font-heading text-2xl font-semibold mb-2">Send an enquiry</h3>
                 <p className="text-text-muted mb-6">
-                  Tell me what you need and roughly where you are, and I'll come back to you with a
-                  clear next step. Please never send passwords or security codes.
+                  Tell me a little about what you need help with, and I'll get back to you to
+                  discuss the next step. Please don't send passwords or security codes.
                 </p>
 
                 {submitError && (
@@ -1140,7 +1107,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div>
-                      <label htmlFor="location" className="block text-sm font-medium mb-2">Your location <span className="text-text-muted font-normal">(town or area)</span></label>
+                      <label htmlFor="location" className="block text-sm font-medium mb-2">Town or area <span className="text-text-muted font-normal">(optional, for home visits)</span></label>
                       <input
                         type="text"
                         id="location"
@@ -1149,7 +1116,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
-                        placeholder="So I can confirm coverage"
+                        placeholder="Only needed for a home visit"
                       />
                     </div>
 
