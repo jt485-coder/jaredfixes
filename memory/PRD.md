@@ -109,3 +109,19 @@ Rebuild jaredfixes.com as a polished React-based service landing page, replacing
 ## External Links
 - JaredTalbot Hub: https://jaredtalbot.com
 - Design Guidelines: /app/design_guidelines.json
+
+## Update — June 2026: Content & service-structure refresh (no redesign)
+Repo confirmed: existing JaredFixes project, `/app/frontend`, branch main. Design, colours, typography, animations preserved.
+
+Implemented:
+- Hero: headline "Websites made simple. / Technology made easier." + new supporting paragraph (County Wexford positioning). Buttons unchanged (Get in Touch → enquiry modal, See How I Help → #services). Removed "No fix, no fee" badge → replaced with "Clear pricing"; first badge now "Websites & digital support". Local badge + coverage note retained.
+- Services (`serviceGroups` in App.js): restructured into two grouped on-page sections — (1) Websites & Digital Support: new sites/improvements, updates/forms/ongoing care, domain & email setup, organising digital world (Google Drive); (2) Home Tech Help: new device setup, accounts/email/staying safe (password manager, 2FA, scam awareness), backups & storage, Photos/Videos & Memories (marked as a supporting service). Creative extras reworded so slideshows are a small extra, not specialist work.
+- Pricing: €40 local home visit (incl. local travel + first hour), €25/hr additional time, €25/hr ongoing digital support, website projects quoted individually with optional ongoing care, senior discount (75+) kept. Removed €30 call-out and "no fix, no pay". Added travel/coverage clarification.
+- Enquiry modal: added required "What do you need help with?" select (Websites & Digital Support / Home Tech Help / Not Sure) and optional location field; wired into Netlify form fields (also added to hidden static form in public/index.html). No password/secret fields; copy explicitly says never send passwords.
+- FAQ: removed 20km radius + "only pay the call-out"; added home-visit cost and website FAQ; password answer reworded.
+- How it works step 3: removed "remote session" (remote access not advertised).
+- SEO: title/meta description updated for websites + Wexford.
+
+Verified: desktop + mobile screenshots (hero, services groups, pricing, enquiry modal), grep sweep confirms no leftover €30/call-out/no-fix/remote/20km wording. Form submission endpoint is Netlify (POST '/') — unchanged, only works on the deployed Netlify site.
+
+Backlog / not done: LocalBusiness schema markup, website portfolio/demo section (no invented claims allowed).

@@ -148,10 +148,10 @@ const Navigation = ({ onOpenContact }) => {
 // Hero Section
 const Hero = ({ onOpenContact }) => {
   const trustBadges = [
-    { icon: <BadgeCheck size={20} />, title: 'Real-world experience', desc: 'I solve real problems quickly and clearly.' },
-    { icon: <MessageCircle size={20} />, title: 'Friendly support', desc: 'No tech talk. I explain things simply.' },
-    { icon: <CheckCircle2 size={20} />, title: 'No fix, no fee', desc: "If I can't help, you don't pay." },
-    { icon: <Shield size={20} />, title: 'Honest guidance', desc: "If it's not improving within 20–30 minutes, I'll tell you honestly." }
+    { icon: <BadgeCheck size={20} />, title: 'Websites & digital support', desc: 'Built, updated and looked after for you.' },
+    { icon: <MessageCircle size={20} />, title: 'Patient, plain English', desc: 'No tech talk. I explain things simply.' },
+    { icon: <CheckCircle2 size={20} />, title: 'Clear pricing', desc: 'Time and cost agreed before any work continues.' },
+    { icon: <Shield size={20} />, title: 'Honest guidance', desc: "If something isn't worth doing, I'll tell you straight." }
   ];
 
   return (
@@ -170,7 +170,7 @@ const Hero = ({ onOpenContact }) => {
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-white">
               <MapPin size={14} className="text-primary" />
-              Local tech help in Wexford
+              Websites & tech help in County Wexford
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-text-muted">
               Based near Oylegate, serving Wexford and surrounding areas.
@@ -184,24 +184,17 @@ const Hero = ({ onOpenContact }) => {
                 variants={fadeInUp}
                 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]"
               >
-                Tech problems?<br />
-                <span className="text-primary">I'll fix them.</span>
+                Websites made simple.<br />
+                <span className="text-primary">Technology made easier.</span>
               </motion.h1>
-              
-              <motion.p
-                variants={fadeInUp}
-                className="text-xl font-semibold text-white mb-4"
-              >
-                No jargon. No stress. Fast, clear help when you need it.
-              </motion.p>
               
               <motion.p
                 variants={fadeInUp}
                 className="text-text-muted text-lg mb-8 max-w-xl"
               >
-                Phones, PCs, storage, backup, email setup, and device security.
-                I keep things simple and tell you straight if something is worth fixing,
-                improving, or replacing.
+                I'm Jared, based in County Wexford. I build and look after websites,
+                help organise your digital world, and provide patient support with
+                everyday technology—for your business or your home.
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-8">
@@ -227,7 +220,7 @@ const Hero = ({ onOpenContact }) => {
               >
                 <p className="font-semibold text-white mb-1">Quick note</p>
                 <p className="text-text-muted text-sm">
-                  Clear, local IT help with a modern edge.
+                  Send me your location when enquiring so I can confirm coverage.
                 </p>
               </motion.div>
             </div>
@@ -259,54 +252,105 @@ const Hero = ({ onOpenContact }) => {
 };
 
 // Services Section
-const Services = () => {
-  const services = [
-    {
-      icon: <Monitor size={28} />,
-      title: 'Devices & everyday fixes',
-      items: [
-        'Phone clean and update',
-        'Storage full and space recovery',
-        'Slow computer tidy-up and updates',
-        'Wi-Fi reconnect and basic fixes',
-        'Simple help understanding your device'
-      ]
-    },
-    {
-      icon: <Shield size={28} />,
-      title: 'Accounts, security & setup',
-      items: [
-        'Email and WhatsApp setup',
-        'Password manager setup',
-        'Two-step verification setup',
-        'Phone number and account security',
-        'Safer settings and scam awareness'
-      ]
-    },
-    {
-      icon: <HardDrive size={28} />,
-      title: 'Backup & data management',
-      items: [
-        'Google Photos and Drive backup setup',
-        'Photo and video backup',
-        'Storage organisation and clean structure',
-        'Moving data safely between devices',
-        'Keeping files safe long-term'
-      ]
-    },
-    {
-      icon: <Globe size={28} />,
-      title: 'Basic websites & online setup',
-      items: [
-        'Simple one-page websites',
-        'Domain and email setup',
-        'Small edits and updates',
-        'Help getting your business online',
-        'Practical AI tools for everyday use'
-      ]
-    }
-  ];
+const serviceGroups = [
+  {
+    id: 'websites',
+    label: 'Websites & Digital Support',
+    intro: 'I help sole traders, small businesses and community organisations build and look after their websites, organise their content and keep everyday digital tasks manageable.',
+    cards: [
+      {
+        icon: <Globe size={28} />,
+        title: 'New websites & improvements',
+        items: [
+          'Simple, clear websites for small businesses',
+          'Improving or refreshing an existing site',
+          'Pages, text and images set up properly',
+          'Mobile-friendly from the start'
+        ]
+      },
+      {
+        icon: <Wrench size={28} />,
+        title: 'Updates, forms & ongoing care',
+        items: [
+          'Text, image and page updates',
+          'Enquiry and contact forms',
+          'Small changes as your business grows',
+          'Optional ongoing care if you want it looked after'
+        ]
+      },
+      {
+        icon: <Mail size={28} />,
+        title: 'Domain & email setup',
+        items: [
+          'Domain name setup and renewals explained',
+          'Business email set up correctly',
+          'Getting your business online and findable',
+          'Keeping logins and details organised'
+        ]
+      },
+      {
+        icon: <HardDrive size={28} />,
+        title: 'Organising your digital world',
+        items: [
+          'Google Drive organisation',
+          'Sensible folder structures you can actually use',
+          'Tidying shared files and documents',
+          'Everyday digital tasks kept manageable'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'home-tech',
+    label: 'Home Tech Help',
+    intro: 'Patient, practical help with phones, computers, email, accounts and backups—so you can feel more comfortable using your technology.',
+    cards: [
+      {
+        icon: <Monitor size={28} />,
+        title: 'New device setup',
+        items: [
+          'Setting up a new phone, tablet or computer',
+          'Moving your details across from an old device',
+          'Tidying up a slow or cluttered device',
+          'Simple help understanding how it works'
+        ]
+      },
+      {
+        icon: <Shield size={28} />,
+        title: 'Accounts, email & staying safe',
+        items: [
+          'Email and messaging set up properly',
+          'Password manager guidance',
+          'Two-factor authentication set up with you',
+          'Scam awareness and safer everyday settings'
+        ]
+      },
+      {
+        icon: <HardDrive size={28} />,
+        title: 'Backups & storage',
+        items: [
+          'Backups set up so nothing is lost',
+          'Freeing up full phone or computer storage',
+          'Google Photos and Drive explained simply',
+          'Moving files safely between devices'
+        ]
+      },
+      {
+        icon: <Film size={28} />,
+        title: 'Photos, Videos & Memories',
+        items: [
+          'Finding photos and videos you thought were gone',
+          'Organising years of photographs into something clear',
+          'Backing up your collection safely',
+          'Enjoying and sharing them with family'
+        ],
+        note: 'A supporting service alongside the help above.'
+      }
+    ]
+  }
+];
 
+const Services = () => {
   return (
     <section id="services" data-testid="services-section" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -321,45 +365,64 @@ const Services = () => {
             variants={fadeInUp}
             className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4"
           >
-            What I can help with
+            How I can help
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-text-muted text-lg max-w-2xl mx-auto"
           >
-            Simple solutions for everyday tech problems, smart help with AI, security basics, data management, backup solutions, and digital setups.
+            Two sides to what I do—websites and digital support for your business, and patient
+            tech help at home. Have a scroll through both.
           </motion.p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          {services.map((service, index) => (
+        <div className="space-y-16 md:space-y-20">
+          {serviceGroups.map((group) => (
             <motion.div
-              key={index}
-              variants={fadeInUp}
-              data-testid={`service-card-${index}`}
-              className="bg-surface border border-white/10 rounded-2xl p-7 hover:-translate-y-1 hover:shadow-xl hover:border-white/15 transition-all duration-300 group"
+              key={group.id}
+              id={group.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={staggerContainer}
+              data-testid={`service-group-${group.id}`}
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:bg-primary/20 transition-colors">
-                {service.icon}
-              </div>
-              <h3 className="font-heading text-xl font-semibold mb-4">{service.title}</h3>
-              <ul className="space-y-2.5">
-                {service.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-text-muted text-sm">
-                    <CheckCircle2 size={14} className="text-primary mt-1 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
+              <motion.div variants={fadeInUp} className="mb-8 max-w-3xl">
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight mb-3">
+                  {group.label}
+                </h3>
+                <p className="text-text-muted">{group.intro}</p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {group.cards.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
+                    data-testid={`service-card-${group.id}-${index}`}
+                    className="bg-surface border border-white/10 rounded-2xl p-7 hover:-translate-y-1 hover:shadow-xl hover:border-white/15 transition-all duration-300 group"
+                  >
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:bg-primary/20 transition-colors">
+                      {service.icon}
+                    </div>
+                    <h4 className="font-heading text-xl font-semibold mb-4">{service.title}</h4>
+                    <ul className="space-y-2.5">
+                      {service.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-text-muted text-sm">
+                          <CheckCircle2 size={14} className="text-primary mt-1 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {service.note && (
+                      <p className="text-text-muted/70 text-xs mt-4">{service.note}</p>
+                    )}
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Creative extras - subtle minimal section */}
         <motion.div
@@ -368,17 +431,18 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
           data-testid="creative-extras"
-          className="mt-12 max-w-2xl mx-auto text-center"
+          className="mt-16 max-w-2xl mx-auto text-center"
         >
           <div className="inline-flex items-center gap-2 text-primary/80 mb-3">
             <Film size={16} />
             <span className="text-xs font-semibold tracking-widest uppercase">Creative extras</span>
           </div>
           <p className="text-text-muted">
-            I can take your photos and videos and turn them into a simple, meaningful video with music. Something you can keep and watch anytime.
+            If you'd like, a favourite set of photos and clips can be pulled together into a simple
+            video with music—something easy to watch and share with family.
           </p>
           <p className="text-text-muted/70 text-sm mt-2">
-            Short highlights or longer story-style versions available.
+            A small extra alongside organising your collection, not a specialist service.
           </p>
         </motion.div>
       </div>
@@ -391,7 +455,7 @@ const HowItWorks = ({ onOpenContact }) => {
   const steps = [
     { number: '01', title: 'Get in touch', desc: 'Describe your problem using the contact form. No need for tech jargon — just tell me what\'s wrong.' },
     { number: '02', title: 'Quick assessment', desc: 'I\'ll get back to you quickly with a clear idea of what we\'re dealing with and how I can help.' },
-    { number: '03', title: 'Problem solved', desc: 'Visit, remote session, or simple guidance — I\'ll fix it, improve it, or give you honest next steps.' }
+    { number: '03', title: 'Sorted together', desc: 'A home visit, a website project, or simple guidance — with the work and time agreed beforehand.' }
   ];
 
   return (
@@ -461,12 +525,20 @@ const Pricing = () => {
   const pricingItems = [
     {
       highlight: true,
-      title: '€30 call-out',
-      desc: '€30 call-out includes the first 30 minutes. Extra time is €20 per additional 30 minutes.'
+      title: 'Local home visits — €40',
+      desc: 'Includes local travel and the first hour of help.'
     },
     {
-      title: 'No fix, no pay',
-      desc: "If I can't improve the problem or give a clear diagnosis + best next step, you only pay the call-out."
+      title: 'Additional time — €25 per hour',
+      desc: 'Always agreed with you before we continue.'
+    },
+    {
+      title: 'Ongoing digital support — €25 per hour',
+      desc: 'The work and estimated time are agreed beforehand.'
+    },
+    {
+      title: 'Website projects — quoted individually',
+      desc: 'Based on the agreed scope, with optional ongoing care.'
     },
     {
       title: 'Senior discount (75+)',
@@ -506,7 +578,8 @@ const Pricing = () => {
             </div>
 
             <p className="text-text-muted mt-6 text-sm">
-              Every visit ends with one of these: fixed, improved, or diagnosed with the best route forward.
+              Send me your location when enquiring so I can confirm coverage. Any travel charge
+              outside my local area will be agreed before you book.
             </p>
           </motion.div>
 
@@ -688,17 +761,17 @@ const Audience = ({ onOpenContact }) => {
             </div>
             <h3 className="font-heading text-2xl font-semibold mb-4">Small Businesses</h3>
             <p className="text-text-muted mb-4">
-              I also help small businesses with simple, practical tech support and modern tools. From getting online to improving how things run day to day, I focus on what actually helps.
+              Sole traders, small businesses and community organisations. I build and look after websites, organise content and files, and keep everyday digital tasks manageable.
             </p>
             <p className="text-text-muted mb-6">
               If you need something more custom, get in touch and I'll let you know what's realistic.
             </p>
             <ul className="space-y-2">
               {[
-                'Basic tech support and troubleshooting',
-                'Security and backup guidance',
-                'AI tools for productivity',
-                'Simple website and online setup'
+                'New websites and improvements',
+                'Website updates and forms',
+                'Domain and email setup',
+                'Google Drive organisation and ongoing support'
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
                   <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
@@ -730,19 +803,19 @@ const FAQ = () => {
   const faqs = [
     {
       question: 'What areas do you cover?',
-      answer: "Wexford — based near Oylegate, covering roughly 20km. If you're slightly outside the area, still get in touch and I'll let you know."
+      answer: "I'm based near Oylegate in County Wexford. Send me your location when you enquire and I'll confirm coverage. Any travel charge outside my local area will be agreed before you book."
     },
     {
-      question: 'How long do visits usually take?',
-      answer: "Most jobs are 30–90 minutes. If it's not improving within 20–30 minutes, I'll tell you straight away and recommend the best next step."
+      question: 'What does a home visit cost?',
+      answer: "A local home visit is €40, which includes local travel and the first hour of help. If more time is needed, it's €25 per hour and always agreed with you before we continue."
     },
     {
       question: 'Do you need my passwords?',
-      answer: "No banking passwords ever. For accounts like email or Apple ID, I'll guide you through the official steps where needed, but I won't bypass security checks."
+      answer: "I won't ask you for passwords or security codes. For accounts like email or Apple ID, I'll sit with you and guide you through the official steps, but I won't bypass security checks."
     },
     {
-      question: "What if you can't fix it?",
-      answer: "If I can't improve the issue or give a clear diagnosis and best next step, you only pay the call-out."
+      question: 'Can you build or look after my website?',
+      answer: "Yes. I build simple, clear websites for sole traders, small businesses and community groups, and I can look after updates afterwards. Website projects are quoted individually based on the agreed scope."
     },
     {
       question: 'Do you offer a pensioner discount?',
@@ -861,6 +934,8 @@ const ContactModal = ({ isOpen, onClose }) => {
     name: '',
     email: '',
     phone: '',
+    service: '',
+    location: '',
     message: '',
     honeypot: '' // Hidden spam field
   });
@@ -896,6 +971,8 @@ const ContactModal = ({ isOpen, onClose }) => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          service: formData.service,
+          location: formData.location,
           message: formData.message
         })
       });
@@ -905,7 +982,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         setTimeout(() => {
           onClose();
           setIsSubmitted(false);
-          setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+          setFormData({ name: '', email: '', phone: '', service: '', location: '', message: '', honeypot: '' });
         }, 2000);
       } else {
         setSubmitError(true);
@@ -962,9 +1039,10 @@ const ContactModal = ({ isOpen, onClose }) => {
               </div>
             ) : (
               <>
-                <h3 className="font-heading text-2xl font-semibold mb-2">Ask a quick question</h3>
+                <h3 className="font-heading text-2xl font-semibold mb-2">Send an enquiry</h3>
                 <p className="text-text-muted mb-6">
-                  Tell me what's going on and I'll get back to you with a clear next step.
+                  Tell me what you need and roughly where you are, and I'll come back to you with a
+                  clear next step. Please never send passwords or security codes.
                 </p>
 
                 {submitError && (
@@ -1044,7 +1122,39 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">What's the problem?</label>
+                      <label htmlFor="service" className="block text-sm font-medium mb-2">What do you need help with?</label>
+                      <select
+                        id="service"
+                        name="service"
+                        required
+                        data-testid="contact-form-service"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors appearance-none"
+                      >
+                        <option value="" disabled className="bg-surface">Please choose…</option>
+                        <option value="Websites & Digital Support" className="bg-surface">Websites &amp; Digital Support</option>
+                        <option value="Home Tech Help" className="bg-surface">Home Tech Help</option>
+                        <option value="Not Sure" className="bg-surface">Not Sure</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="location" className="block text-sm font-medium mb-2">Your location <span className="text-text-muted font-normal">(town or area)</span></label>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        data-testid="contact-form-location"
+                        value={formData.location}
+                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                        placeholder="So I can confirm coverage"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2">What do you need?</label>
                       <textarea
                         id="message"
                         name="message"
@@ -1054,7 +1164,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors resize-none"
-                        placeholder="Briefly describe your tech issue..."
+                        placeholder="Describe what you'd like help with..."
                       />
                     </div>
 
