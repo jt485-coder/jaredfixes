@@ -148,3 +148,10 @@ Backlog / not done: LocalBusiness schema markup, website portfolio/demo section 
 - FAQ: pensioner discount replaced by "What happens if you can't help with my problem?" with the approved answer; website FAQ extended with optional ongoing care + €25/hr ongoing support. 6 questions total, all consistent with €40 visit / €25 hr / quoted websites / no radius / no retained credentials / no remote access.
 - Hero visual: replay button and its state/import removed; once-per-view animation and reduced-motion static composition unchanged. Temporary review GIF deleted from /app/frontend/public.
 - Verified on desktop and mobile (0px overflow). Live Netlify form delivery still UNVERIFIED.
+
+## Contact options + footer pass — June 2026 (preview)
+- `CONTACT_METHODS` const in App.js drives both the main contact cards and the footer row: tel:+353892183492 ("Call Jared" / 089 218 3492), https://wa.me/353892183492 ("WhatsApp me" / Send a message, opens new tab), mailto:fix@jaredtalbot.com ("Email Jared").
+- FinalCTA: "Get in Touch" button stays primary; below a divider ("Or reach me directly") sit three fully clickable cards (data-testid contact-card-phone/whatsapp/email) — rounded-2xl, subtle border, 40px icon tiles, hover brightens to border-primary/50 with motion-safe lift, active pressed state, focus-visible orange ring. One row on desktop (sm:grid-cols-3), stacked on mobile. Visible text labels always shown.
+- Footer: "JaredTalbot Hub" link + ExternalLink import removed; tagline now "Websites & everyday tech help"; simple labelled icon row (footer-contact-phone/whatsapp/email); name + copyright kept.
+- WhatsApp brand glyph added as a local inline SVG component (`WhatsAppIcon`) since lucide has no brand icons — no new dependencies.
+- Verified desktop/mobile layout, hrefs, hover, focus ring, 0px overflow.

@@ -17,7 +17,6 @@ import {
   Briefcase,
   MessageCircle,
   Send,
-  ExternalLink,
   Wrench,
   BadgeCheck,
   HardDrive,
@@ -25,6 +24,22 @@ import {
   Film
 } from 'lucide-react';
 import HeroVisual from './HeroVisual';
+
+
+// WhatsApp brand glyph (not available in lucide)
+const WhatsAppIcon = ({ size = 20 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.33-1.59-1.48-1.89-.15-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.08 3.31 5.15 4.5 2.55.99 3.07.79 3.62.74.55-.05 1.79-.72 2.04-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z" />
+    <path d="M12.04 2h-.01C6.52 2 2.03 6.49 2.03 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.38a9.93 9.93 0 0 0 4.98 1.33h.01c5.51 0 10-4.49 10-10S17.55 2 12.04 2Zm0 18.13h-.01c-1.6 0-3.17-.43-4.53-1.25l-.33-.19-3.25.88.87-3.17-.2-.34a8.1 8.1 0 0 1-1.24-4.32c0-4.48 3.65-8.13 8.14-8.13 2.17 0 4.21.85 5.75 2.39a8.07 8.07 0 0 1 2.38 5.75c0 4.49-3.65 8.13-8.14 8.13Z" />
+  </svg>
+);
 
 // Animation variants
 const fadeInUp = {
@@ -794,6 +809,32 @@ const FAQ = () => {
 };
 
 // Final CTA Section
+// Final CTA Section
+const CONTACT_METHODS = [
+  {
+    id: 'phone',
+    href: 'tel:+353892183492',
+    icon: <Phone size={20} />,
+    label: 'Call Jared',
+    value: '089 218 3492'
+  },
+  {
+    id: 'whatsapp',
+    href: 'https://wa.me/353892183492',
+    external: true,
+    icon: <WhatsAppIcon size={20} />,
+    label: 'WhatsApp me',
+    value: 'Send a message'
+  },
+  {
+    id: 'email',
+    href: 'mailto:fix@jaredtalbot.com',
+    icon: <Mail size={20} />,
+    label: 'Email Jared',
+    value: 'fix@jaredtalbot.com'
+  }
+];
+
 const FinalCTA = ({ onOpenContact }) => {
   return (
     <section data-testid="final-cta-section" className="py-20 md:py-28">
@@ -822,6 +863,29 @@ const FinalCTA = ({ onOpenContact }) => {
             >
               Get in Touch
             </button>
+
+            <div className="mt-12 pt-10 border-t border-white/10">
+              <p className="text-text-muted text-sm mb-5">Or reach me directly</p>
+              <div className="grid sm:grid-cols-3 gap-4 text-left" data-testid="contact-cards">
+                {CONTACT_METHODS.map((method) => (
+                  <a
+                    key={method.id}
+                    href={method.href}
+                    {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    data-testid={`contact-card-${method.id}`}
+                    className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-[background-color,border-color,transform] duration-200 hover:bg-white/10 hover:border-primary/50 motion-safe:hover:-translate-y-1 active:translate-y-0 active:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <span className="w-10 h-10 flex-shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors duration-200 group-hover:bg-primary/20">
+                      {method.icon}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-semibold text-white text-sm">{method.label}</span>
+                      <span className="block text-text-muted text-xs mt-0.5">{method.value}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -1107,18 +1171,20 @@ const Footer = () => {
           <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-primary to-primary-hover" />
           <span className="font-heading font-bold">Jared Fixes</span>
         </div>
-        <p className="text-text-muted text-sm mb-4">Tech help made simple</p>
-        <div className="flex items-center justify-center gap-6 text-sm">
-          <a
-            href="https://jaredtalbot.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="footer-hub-link"
-            className="text-text-muted hover:text-white transition-colors flex items-center gap-1.5"
-          >
-            JaredTalbot Hub
-            <ExternalLink size={14} />
-          </a>
+        <p className="text-text-muted text-sm mb-4">Websites &amp; everyday tech help</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm">
+          {CONTACT_METHODS.map((method) => (
+            <a
+              key={method.id}
+              href={method.href}
+              {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              data-testid={`footer-contact-${method.id}`}
+              className="flex items-center gap-2 text-text-muted rounded-full px-2 py-1 transition-colors duration-200 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <span className="text-primary">{method.icon}</span>
+              {method.id === 'phone' ? method.value : method.label}
+            </a>
+          ))}
         </div>
         <p className="text-text-muted/50 text-xs mt-6">
           © {new Date().getFullYear()} Jared Fixes. Wexford, Ireland.
