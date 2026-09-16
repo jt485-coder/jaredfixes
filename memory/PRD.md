@@ -155,3 +155,8 @@ Backlog / not done: LocalBusiness schema markup, website portfolio/demo section 
 - Footer: "JaredTalbot Hub" link + ExternalLink import removed; tagline now "Websites & everyday tech help"; simple labelled icon row (footer-contact-phone/whatsapp/email); name + copyright kept.
 - WhatsApp brand glyph added as a local inline SVG component (`WhatsAppIcon`) since lucide has no brand icons — no new dependencies.
 - Verified desktop/mobile layout, hrefs, hover, focus ring, 0px overflow.
+
+## GitHub export investigation — June 2026
+- Finding: /app has NO git remote (`git remote -v` empty). All approved work is committed on local branch `main` (HEAD 8b50de5) and the working tree is clean apart from node_modules/yarn.lock. Nothing was ever pushed from this forked job, which is why GitHub `main` is stale and `conflict_160926_1545` differs only in `.emergent/emergent.yml` (created by an earlier job's export attempt).
+- GitHub connection is per-job, so it does not carry over into a forked session. Resolution path: user triggers the platform "Save to GitHub" feature and selects jt485-coder/jaredfixes with a NEW branch, then opens a PR into main. No agent-side push/pull/reset/deploy performed or needed.
+- Verified read-only by testing agent (report /app/test_reports/iteration_4.json, 100% frontend, 0 issues): headline, animated hero without replay button, service groups, pricing order, 6 FAQs, contact cards (tel:+353892183492 / wa.me/353892183492 / mailto:fix@jaredtalbot.com), footer row and enquiry modal all match the approved spec.

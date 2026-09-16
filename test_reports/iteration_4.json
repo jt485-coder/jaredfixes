@@ -1,0 +1,35 @@
+{
+  "summary": "Read-only verification of the running preview at https://copy-revise.preview.emergentagent.com against the approved JaredFixes session content. All 9 review requirements verified end-to-end at desktop (1500x900) and mobile (390x844 + 390x600). No files were edited, no git commands were run, and the enquiry form was not submitted. The preview contains exactly the approved content that the user believes is missing from GitHub main — confirming the user's concern is a git/export issue (no remote in pod), not a content issue.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_requirements": [
+    "Hero H1 = 'Websites made simple.\\nTechnology made easier.' and intro paragraph matches; exactly ONE 'Based in County Wexford' badge",
+    "hero-visual present; hero-visual-replay does NOT exist",
+    "hero-cta-primary ('Get in Touch') opens the enquiry modal; hero-cta-secondary ('See How I Help') scrolls to services (window.scrollY=892)",
+    "service-group-websites appears before service-group-home-tech (y=1260 vs y=2135); service-group-extra-websites present; ai-help-section does NOT exist",
+    "Pricing contains 'Website projects', 'Ongoing digital support', '€25', 'Local home visits', '€40', 'Additional time', and 'A straightforward approach'; approach-section present; NO forbidden strings found (€30, no fix no fee, pensioner, travel radius, remote access)",
+    "FAQ has exactly 6 items (data-testid=faq-item-*), includes \"What happens if you can't help with my problem?\" and 'Can you help with AI tools?'; no pensioner-discount question",
+    "Contact cards hrefs verified: tel:+353892183492, https://wa.me/353892183492, mailto:fix@jaredtalbot.com. Labels 'Call Jared / 089 218 3492', 'WhatsApp me / Send a message', 'Email Jared / fix@jaredtalbot.com'. Single row on desktop (identical y=7105); stacked on mobile 390 (y=186/276/366); no horizontal overflow (scrollWidth=clientWidth=390)",
+    "Footer: tagline 'Websites & everyday tech help' present; footer-contact-phone/whatsapp/email each present; footer-hub-link does NOT exist",
+    "Enquiry modal: contact-form-service has options ['Please choose…', 'Websites & Digital Support', 'Home Tech Help', 'Not Sure']; optional 'Town or area' field present; modal has internal overflow-y:auto with scrollHeight 916 vs clientHeight 508 at 390x600 so it scrolls inside the dialog"
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "No code changes required — preview matches all approved content.",
+    "User's GitHub main is stale because the pod has no git remote. Instruct user to use the platform 'Save to GitHub' feature to export current /app to a new branch in jt485-coder/jaredfixes; nothing to fix in the app itself."
+  ],
+  "critical_code_review_comments": [
+    "App.js is a very large single file driving hero, services, pricing, FAQ, contact and footer — consider splitting into per-section modules for maintainability (nice-to-have, not blocking)."
+  ],
+  "updated_files": [],
+  "success_rate": {"frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "This was a pure read-only content/UX verification pass. Preview at https://copy-revise.preview.emergentagent.com fully matches the approved JaredFixes spec. No form submission was made against Netlify (per instructions). If GitHub still shows the old site after this, it is because the pod has no git remote — user must export via platform 'Save to GitHub' feature.",
+  "rca of the issue": "User reported GitHub main shows old site. RCA: the forked preview pod does NOT carry a git remote from the user's repo, so no session changes are ever pushed automatically. The local /app repo has all approved content committed but never left the pod. Mitigation: user triggers the Emergent platform 'Save to GitHub' export to publish current /app to a new branch in jt485-coder/jaredfixes. No code fix needed."
+}
