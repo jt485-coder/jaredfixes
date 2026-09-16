@@ -25,6 +25,7 @@ import {
   Globe,
   Film
 } from 'lucide-react';
+import HeroVisual from './HeroVisual';
 
 // Animation variants
 const fadeInUp = {
@@ -211,26 +212,28 @@ const Hero = ({ onOpenContact }) => {
               </motion.div>
             </div>
 
-            {/* Trust badges */}
-            <motion.div variants={staggerContainer} className="grid gap-4">
-              {trustBadges.map((badge, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  data-testid={`trust-badge-${index}`}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 hover:border-white/15 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="text-primary mt-0.5">{badge.icon}</div>
-                    <div>
-                      <p className="font-semibold text-white mb-1">{badge.title}</p>
-                      <p className="text-text-muted text-sm">{badge.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            {/* Animated hero visual - decorative */}
+            <motion.div variants={fadeInUp} className="mt-4 lg:mt-0">
+              <HeroVisual />
             </motion.div>
           </div>
+
+          {/* Compact reassurance strip */}
+          <motion.div
+            variants={fadeInUp}
+            data-testid="reassurance-strip"
+            className="mt-10 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {trustBadges.map((badge, index) => (
+              <div key={index} data-testid={`trust-badge-${index}`} className="flex items-start gap-2.5">
+                <div className="text-primary mt-0.5">{badge.icon}</div>
+                <div>
+                  <p className="font-semibold text-white text-sm">{badge.title}</p>
+                  <p className="text-text-muted text-xs mt-0.5">{badge.desc}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -133,3 +133,9 @@ Backlog / not done: LocalBusiness schema markup, website portfolio/demo section 
 - Boundaries panel + red-cross list replaced by compact "A straightforward approach" block (data-testid="approach-section") under pricing; account-recovery explanation moved into the passwords FAQ.
 - Enquiry modal: new intro copy, full service names in selector, location relabelled "Town or area (optional, for home visits)", modal now max-h-[85vh] with internal scroll (verified at 390x600). Failure path keeps the typed message and shows the error banner.
 - Deployed Netlify form delivery remains UNVERIFIED until a test enquiry is confirmed received.
+
+## Hero visual pass — June 2026 (preview only, awaiting review)
+- New `/app/frontend/src/HeroVisual.jsx`: decorative SVG illustration ("digital clutter becomes organised") animated with framer-motion. 8 pieces (abstract browser miniature, 3 photo tiles, 2 folders, 2 envelopes) fly in from scattered offsets over ~3.5s, then 7 orange connector paths draw in (pathLength) and the composition settles still. Plays once via useInView({once:true}); discreet keyboard-accessible "Replay animation" button (data-testid="hero-visual-replay") remounts the svg via key. useReducedMotion → full static composition, no replay button. svg aria-hidden + focusable=false; wrapper uses aspect-ratio 46/37 to reserve space (no CLS). No new dependencies.
+- Hero: right-hand trust cards replaced by the visual; their copy preserved in a compact static strip under the hero (data-testid="reassurance-strip", trust-badge-N retained). Headline, intro and both CTAs unchanged and immediately visible.
+- Verified: desktop mid-animation frames + settled state, keyboard replay + focus ring, mobile 390px (visual below CTAs, 0px horizontal overflow), reduced-motion static state, both CTA destinations (#services and enquiry modal).
+- Review artifact: /app/frontend/public/hero-animation.gif (18-frame recording of the sequence) — DELETE before publishing.
