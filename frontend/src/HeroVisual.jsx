@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { RotateCcw } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -80,7 +79,6 @@ export const HeroVisual = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const prefersReduced = useReducedMotion();
-  const [runId, setRunId] = useState(0);
 
   const animate = !prefersReduced && inView;
 
@@ -89,7 +87,6 @@ export const HeroVisual = () => {
       {/* Reserved aspect ratio prevents layout shift */}
       <div className="relative w-full" style={{ aspectRatio: '46 / 37' }}>
         <svg
-          key={runId}
           viewBox="0 0 460 370"
           className="absolute inset-0 w-full h-full select-none"
           aria-hidden="true"
@@ -174,20 +171,6 @@ export const HeroVisual = () => {
           </Piece>
         </svg>
       </div>
-
-      {!prefersReduced && (
-        <div className="flex justify-center lg:justify-end mt-2">
-          <button
-            type="button"
-            onClick={() => setRunId((n) => n + 1)}
-            data-testid="hero-visual-replay"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-text-muted transition-colors duration-200 hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            <RotateCcw size={13} />
-            Replay animation
-          </button>
-        </div>
-      )}
     </div>
   );
 };

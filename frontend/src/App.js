@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Monitor,
   Shield,
-  Cpu,
   Phone,
   Mail,
   MapPin,
@@ -246,6 +245,7 @@ const serviceGroups = [
     id: 'websites',
     label: 'Websites & Digital Support',
     intro: 'I help sole traders, small businesses and community organisations build and look after their websites, organise their content and keep everyday digital tasks manageable.',
+    extra: 'Practical AI help: patient guidance with tools such as ChatGPT and Claude, including getting started and finding practical uses for everyday tasks.',
     cards: [
       {
         icon: <Globe size={28} />,
@@ -318,7 +318,7 @@ const serviceGroups = [
         icon: <HardDrive size={28} />,
         title: 'Backups & storage',
         items: [
-          'Backups set up so nothing is lost',
+          'Help setting up and checking backups of your important files',
           'Freeing up full phone or computer storage',
           'Google Photos and Drive explained simply',
           'Moving files safely between devices'
@@ -328,12 +328,11 @@ const serviceGroups = [
         icon: <Film size={28} />,
         title: 'Photos, Videos & Memories',
         items: [
-          'Finding photos and videos you thought were gone',
+          'Finding and gathering photos across your devices and accounts',
           'Organising years of photographs into something clear',
           'Backing up your collection safely',
           'Enjoying and sharing them with family'
-        ],
-        note: 'A supporting service alongside the help above.'
+        ]
       }
     ]
   }
@@ -402,12 +401,19 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
-                    {service.note && (
-                      <p className="text-text-muted/70 text-xs mt-4">{service.note}</p>
-                    )}
                   </motion.div>
                 ))}
               </div>
+
+              {group.extra && (
+                <motion.p
+                  variants={fadeInUp}
+                  data-testid={`service-group-extra-${group.id}`}
+                  className="mt-6 text-text-muted text-sm max-w-3xl"
+                >
+                  {group.extra}
+                </motion.p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -429,9 +435,6 @@ const Services = () => {
             If you'd like, a favourite set of photos and clips can be pulled together into a simple
             video with music—something easy to watch and share with family.
           </p>
-          <p className="text-text-muted/70 text-sm mt-2">
-            A small extra alongside organising your collection, not a specialist service.
-          </p>
         </motion.div>
       </div>
     </section>
@@ -441,7 +444,7 @@ const Services = () => {
 // How It Works Section
 const HowItWorks = ({ onOpenContact }) => {
   const steps = [
-    { number: '01', title: 'Get in touch', desc: 'Describe your problem using the contact form. No need for tech jargon — just tell me what\'s wrong.' },
+    { number: '01', title: 'Get in touch', desc: 'Tell me what you\'d like help with or what you\'re hoping to create. No technical language needed.' },
     { number: '02', title: 'Quick assessment', desc: 'I\'ll get back to you quickly with a clear idea of what we\'re dealing with and how I can help.' },
     { number: '03', title: 'Sorted together', desc: 'A home visit, a website project, or simple guidance — with the work and time agreed beforehand.' }
   ];
@@ -591,77 +594,6 @@ const Pricing = () => {
   );
 };
 
-// AI Help Section
-const AIHelp = () => {
-  return (
-    <section data-testid="ai-help-section" className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="bg-surface border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden relative"
-        >
-          {/* Subtle warm glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="relative grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <motion.span
-                variants={fadeInUp}
-                className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6"
-              >
-                Practical AI Help
-              </motion.span>
-              
-              <motion.h2
-                variants={fadeInUp}
-                className="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-6"
-              >
-                AI made practical.<br />
-                <span className="text-text-muted">Not overwhelming.</span>
-              </motion.h2>
-              
-              <motion.p variants={fadeInUp} className="text-text-muted text-lg mb-8">
-                I help home users and small businesses get started with modern AI tools. No hype or confusion.
-                Whether you're curious about what AI can actually do or need help setting it up, I'll keep it simple, useful, and tailored to you.
-              </motion.p>
-
-              <motion.ul variants={staggerContainer} className="space-y-3">
-                {[
-                  'Beginner-friendly setup and guidance (ChatGPT, Claude and more)',
-                  'Practical workflow ideas for everyday tasks',
-                  'Help choosing the right tools without overwhelm',
-                  'Custom AI support available on request'
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    variants={fadeInUp}
-                    className="flex items-center gap-3 text-white"
-                  >
-                    <CheckCircle2 size={18} className="text-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </div>
-
-            <motion.div
-              variants={fadeInUp}
-              className="relative"
-            >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 via-primary/5 to-transparent border border-white/10 flex items-center justify-center">
-                <Cpu size={120} className="text-primary/40" />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 // Home Users & Small Business Section
 const Audience = ({ onOpenContact }) => {
   return (
@@ -689,37 +621,6 @@ const Audience = ({ onOpenContact }) => {
           variants={staggerContainer}
           className="grid md:grid-cols-2 gap-6"
         >
-          {/* Home Users */}
-          <motion.div
-            variants={fadeInUp}
-            data-testid="audience-home-users"
-            className="bg-surface border border-white/10 rounded-3xl p-8 md:p-10 hover:border-primary/30 transition-all duration-300"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
-              <Home size={28} />
-            </div>
-            <h3 className="font-heading text-2xl font-semibold mb-4">Home Users</h3>
-            <p className="text-text-muted mb-4">
-              My main focus. Whether it's a slow laptop or phone, a device full of photos and videos, or concerns around security as technology moves fast, I keep things simple and under control.
-            </p>
-            <p className="text-text-muted mb-6">
-              I help with data, storage, accounts, websites, systems, and AI. Clear, practical support so you always know what's going on and what to do next.
-            </p>
-            <ul className="space-y-2">
-              {[
-                'Device setup and troubleshooting',
-                'Security basics and scam protection',
-                'Email, messaging, and app setup',
-                'Beginner-friendly AI guidance'
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
-                  <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Small Businesses */}
           <motion.div
             variants={fadeInUp}
@@ -742,6 +643,37 @@ const Audience = ({ onOpenContact }) => {
                 'Website updates and forms',
                 'Domain and email setup',
                 'Google Drive organisation and ongoing support'
+              ].map((item, index) => (
+                <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
+                  <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Home Users */}
+          <motion.div
+            variants={fadeInUp}
+            data-testid="audience-home-users"
+            className="bg-surface border border-white/10 rounded-3xl p-8 md:p-10 hover:border-primary/30 transition-all duration-300"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+              <Home size={28} />
+            </div>
+            <h3 className="font-heading text-2xl font-semibold mb-4">Home Users</h3>
+            <p className="text-text-muted mb-4">
+              Whether it's a slow laptop or phone, a device full of photos and videos, or concerns around security as technology moves fast, I keep things simple and under control.
+            </p>
+            <p className="text-text-muted mb-6">
+              I help with data, storage, accounts, websites, systems, and AI. Clear, practical support so you always know what's going on and what to do next.
+            </p>
+            <ul className="space-y-2">
+              {[
+                'Device setup and troubleshooting',
+                'Security basics and scam awareness',
+                'Email, messaging, and app setup',
+                'Beginner-friendly AI guidance'
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-2 text-text-muted text-sm">
                   <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
@@ -785,15 +717,15 @@ const FAQ = () => {
     },
     {
       question: 'Can you build or look after my website?',
-      answer: "Yes. I build simple, clear websites for sole traders, small businesses and community groups, and I can look after updates afterwards. Website projects are quoted individually based on the agreed scope."
+      answer: "Yes. I build simple, clear websites for sole traders, small businesses and community groups, and I can look after updates afterwards. Website projects are quoted individually based on the agreed scope, with optional ongoing care. Ongoing digital support is €25 per hour, with the work and estimated time agreed beforehand."
     },
     {
-      question: 'Do you offer a pensioner discount?',
-      answer: "Yes. Just mention it when you get in touch and I'll apply it."
+      question: "What happens if you can't help with my problem?",
+      answer: "I'll discuss what you need before booking and let you know if it sounds like specialist work. If a limitation becomes clear during a visit, I'll explain it and agree the next step with you. The visit charge covers the agreed time and assistance, rather than a guaranteed fix. Any additional time is agreed before continuing."
     },
     {
       question: 'Can you help with AI tools?',
-      answer: "Absolutely. I help beginners get started with ChatGPT and other practical AI tools. No hype, just useful guidance tailored to your needs."
+      answer: "Yes. I offer patient guidance with tools such as ChatGPT and Claude, including getting started and finding practical uses for everyday tasks. It sits alongside the website and technology support rather than being a separate service."
     }
   ];
 
@@ -881,8 +813,7 @@ const FinalCTA = ({ onOpenContact }) => {
               Let's get your tech sorted
             </h2>
             <p className="text-text-muted text-lg mb-8 max-w-xl mx-auto">
-              Send me a message and I'll point you in the right direction straight away.
-              If it sounds like a fit, we'll take it from there.
+              Tell me what you'd like help with. I'll get back to you to discuss the next step.
             </p>
             <button
               onClick={onOpenContact}
@@ -1243,7 +1174,6 @@ function App() {
         <Services />
         <HowItWorks onOpenContact={() => setIsContactOpen(true)} />
         <Pricing />
-        <AIHelp />
         <Audience onOpenContact={() => setIsContactOpen(true)} />
         <FAQ />
         <FinalCTA onOpenContact={() => setIsContactOpen(true)} />

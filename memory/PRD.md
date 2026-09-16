@@ -139,3 +139,12 @@ Backlog / not done: LocalBusiness schema markup, website portfolio/demo section 
 - Hero: right-hand trust cards replaced by the visual; their copy preserved in a compact static strip under the hero (data-testid="reassurance-strip", trust-badge-N retained). Headline, intro and both CTAs unchanged and immediately visible.
 - Verified: desktop mid-animation frames + settled state, keyboard replay + focus ring, mobile 390px (visual below CTAs, 0px horizontal overflow), reduced-motion static state, both CTA destinations (#services and enquiry modal).
 - Review artifact: /app/frontend/public/hero-animation.gif (18-frame recording of the sequence) — DELETE before publishing.
+
+## Content-consistency pass — June 2026 (preview, unpublished)
+- Who I help: Small Businesses card now first; "My main focus" removed; "scam protection" → "scam awareness".
+- Services wording: backups item → "Help setting up and checking backups of your important files"; photos item → "Finding and gathering photos across your devices and accounts"; removed both disclaimer notes (card `note` field and its render, plus the creative-extras second line). Personal-video description retained.
+- AI: standalone AIHelp section deleted (component + usage + Cpu import). AI now a single supporting line under the Websites & Digital Support group (`extra` field, data-testid="service-group-extra-websites"): "Practical AI help: patient guidance with tools such as ChatGPT and Claude, including getting started and finding practical uses for everyday tasks." "Custom AI support available on request" removed.
+- How it works step 1 and the final contact paragraph updated to the approved enquiry wording.
+- FAQ: pensioner discount replaced by "What happens if you can't help with my problem?" with the approved answer; website FAQ extended with optional ongoing care + €25/hr ongoing support. 6 questions total, all consistent with €40 visit / €25 hr / quoted websites / no radius / no retained credentials / no remote access.
+- Hero visual: replay button and its state/import removed; once-per-view animation and reduced-motion static composition unchanged. Temporary review GIF deleted from /app/frontend/public.
+- Verified on desktop and mobile (0px overflow). Live Netlify form delivery still UNVERIFIED.
