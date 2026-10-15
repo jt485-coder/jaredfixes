@@ -1,0 +1,43 @@
+{
+  "summary": "Frontend-only verification of Jared Fixes content update (hero coverage line, FAQ areas text, pricing items + quote note, new 'Get found on Google' service card, 'Hi, I'm Jared' about section placement/photo, readability 18px + #c9c9c9 muted, SEO head/JSON-LD, no external owner links, mobile 390x844 + modal 390x600). All assertions pass.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications_passed": [
+    "Document title = 'Jared Fixes | Websites & Tech Help | Oylegate, Enniscorthy & Wexford'",
+    "og:title/og:description/og:image/og:url + twitter card tags all present in /app/frontend/public/index.html",
+    "LocalBusiness JSON-LD: name=Jared Fixes, telephone=+353892183492, url=https://www.jaredfixes.com, addressLocality=Oylegate, addressRegion=Co. Wexford, addressCountry=IE, areaServed=[Oylegate,Enniscorthy,Wexford,County Wexford]; NO streetAddress",
+    "Hero shows exactly ONE visible location badge 'Based in Oylegate, Co. Wexford'",
+    "hero-coverage-line = 'Covering Enniscorthy, Wexford town and the surrounding area, plus remote help anywhere.'",
+    "Get in Touch (hero-cta-primary) opens enquiry modal; See How I Help (hero-cta-secondary, <a href=#services>) scrolls to services section (y 0->1083, services top 1163)",
+    "FAQ 'What areas do you cover?' answer matches new copy (Oylegate, ~15 km €40, 15–25 km €10 travel, further out agreed/remote); FAQ count = 6; no 'pensioner' or 'no-fix-no-fee' wording",
+    "Pricing listing order (text verified): Starter Website — from €350, Business Website — from €700, WordPress Website — €900–€2,500, Get Found on Google — from €150, Ongoing digital support — €25 per hour, Local home visits — €40 (+ 'Additional time — €25 per hour' + travel note), Remote help (phone or screen-share) — €25 per hour",
+    "pricing-quote-note = 'Every price is confirmed in a written quote before any work starts.' present",
+    "Old 'Website projects — quoted individually' wording removed; 'A straightforward approach' block still present",
+    "Service group order: 'Websites & Digital Support' before 'Home Tech Help'; new 'Get found on Google' card with 4 bullets (GBP, Search Console/Analytics, titles/descriptions, broken links/icons)",
+    "about-section visible between services (y≈1163) and How it works (y≈4378) with about-section at y≈3813",
+    "about-photo bounding box desktop ~280x373, border-radius 0px (uncropped). Mobile 390 width: 220x293, no horizontal overflow (docW=390)",
+    "Body computed font-size = 18px; muted sample color rgb(201,201,201) = #c9c9c9",
+    "External links on page: only https://wa.me/353892183492 (duplicated hero+footer). No bitcoin/GrowYourBTC/jaredtalbot hub links",
+    "Footer tagline area contains three labelled icon links: tel:+353892183492, https://wa.me/353892183492, mailto:fix@jaredtalbot.com",
+    "No 'Replay' button on hero animated visual",
+    "Enquiry modal at 390x600: outer card has max-h-[85vh] overflow-y-auto; scrollHeight 1059 > clientHeight 508 (internal scrolling works, service <select> renders)"
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "App.js is 1332 lines — consider splitting into section components (Hero, Pricing, FAQ, AboutJared, Footer) for maintainability.",
+    "Placeholder /jared-cutout.png is in place as expected per request note; swap for real photo when available (not a bug)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "test_credentials": "n/a - public marketing page",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All content/SEO/readability checks for this iteration are passing on preview https://copy-revise.preview.emergentagent.com. Note the hero secondary CTA is implemented as <a data-testid='hero-cta-secondary'> (anchor), not a button; use that selector. Modal is a plain div (no role=dialog) — detect via text 'Send an enquiry' or scrollable class max-h-[85vh].",
+  "rca of the issue": "n/a"
+}

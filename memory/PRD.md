@@ -160,3 +160,14 @@ Backlog / not done: LocalBusiness schema markup, website portfolio/demo section 
 - Finding: /app has NO git remote (`git remote -v` empty). All approved work is committed on local branch `main` (HEAD 8b50de5) and the working tree is clean apart from node_modules/yarn.lock. Nothing was ever pushed from this forked job, which is why GitHub `main` is stale and `conflict_160926_1545` differs only in `.emergent/emergent.yml` (created by an earlier job's export attempt).
 - GitHub connection is per-job, so it does not carry over into a forked session. Resolution path: user triggers the platform "Save to GitHub" feature and selects jt485-coder/jaredfixes with a NEW branch, then opens a PR into main. No agent-side push/pull/reset/deploy performed or needed.
 - Verified read-only by testing agent (report /app/test_reports/iteration_4.json, 100% frontend, 0 issues): headline, animated hero without replay button, service groups, pricing order, 6 FAQs, contact cards (tel:+353892183492 / wa.me/353892183492 / mailto:fix@jaredtalbot.com), footer row and enquiry modal all match the approved spec.
+
+## Oylegate / pricing / about pass — Oct 2026 (preview only, not published)
+Changed files: frontend/src/App.js, frontend/public/index.html, frontend/src/index.css, frontend/tailwind.config.js, frontend/public/jared-cutout.png (PLACEHOLDER).
+- Location: hero badge "Based in Oylegate, Co. Wexford"; new hero coverage line (data-testid=hero-coverage-line); FAQ "What areas do you cover?" replaced with the 15 km / 15–25 km (€10 travel) / remote answer.
+- Pricing: Starter €350, Business €700, WordPress €900–€2,500, Get Found on Google €150, digital support €25/hr, local visits €40 (additional time nested + travel note), new Remote help €25/hr; note "Every price is confirmed in a written quote before any work starts." (pricing-quote-note). Old "Website projects — quoted individually" removed.
+- New "Get found on Google" service card (Search icon) in Websites & Digital Support.
+- New AboutJared section (data-testid=about-section/about-photo) between Services and HowItWorks: /jared-cutout.png at 220px mobile / 280px desktop, uncropped, radial orange glow behind.
+- Readability: body 18px + @layer utilities bump for text-xs/sm/base/lg; --text-muted and tailwind 'text-muted' lightened #a3a3a3 → #c9c9c9.
+- SEO: new title/description, canonical, full Open Graph + Twitter tags, LocalBusiness JSON-LD (no street address). No external owner links anywhere.
+- Verified: testing agent /app/test_reports/iteration_5.json — 100% frontend, zero issues.
+- OPEN GAP: the user's photo attachment could not be retrieved (get_assets returned none), so frontend/public/jared-cutout.png is a transparent "Photo pending upload" placeholder at the correct 280x373 size. Needs re-attaching, then overwrite that one file.
