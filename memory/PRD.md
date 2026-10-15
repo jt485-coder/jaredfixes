@@ -170,4 +170,4 @@ Changed files: frontend/src/App.js, frontend/public/index.html, frontend/src/ind
 - Readability: body 18px + @layer utilities bump for text-xs/sm/base/lg; --text-muted and tailwind 'text-muted' lightened #a3a3a3 → #c9c9c9.
 - SEO: new title/description, canonical, full Open Graph + Twitter tags, LocalBusiness JSON-LD (no street address). No external owner links anywhere.
 - Verified: testing agent /app/test_reports/iteration_5.json — 100% frontend, zero issues.
-- OPEN GAP: the user's photo attachment could not be retrieved (get_assets returned none), so frontend/public/jared-cutout.png is a transparent "Photo pending upload" placeholder at the correct 280x373 size. Needs re-attaching, then overwrite that one file.
+- RESOLVED (Oct 2026): real photo received and saved to frontend/public/jared-cutout.png (936x1000 RGBA, transparent). Rendered 280px wide on desktop / 220px mobile, border-radius 0 (no circle crop), radial orange glow behind. Verified via screenshots; no other file changed.

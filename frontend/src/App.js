@@ -489,8 +489,8 @@ const AboutJared = () => (
             src="/jared-cutout.png"
             alt="Jared, who runs Jared Fixes"
             data-testid="about-photo"
-            width="280"
-            height="373"
+            width="936"
+            height="1000"
             loading="lazy"
             className="relative w-full h-auto"
           />
