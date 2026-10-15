@@ -1,0 +1,25 @@
+{
+  "short_name": "Jared Fixes",
+  "name": "Jared Fixes | Websites & Tech Help",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/icon-192-v2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512-v2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ff6a00",
+  "background_color": "#0a0a0a"
+}
