@@ -304,12 +304,18 @@ const serviceGroups = [
       {
         icon: <Search size={28} />,
         title: 'Get found on Google',
+        subtitle: 'Search & analytics setup',
+        desc: 'Help customers find your business online and understand how your website is performing.',
+        itemsIntro: 'Depending on your agreed quote, I can help with:',
         items: [
-          'Google Business Profile set up properly',
-          'Google Search Console and Analytics',
-          'Page titles, descriptions and wording tidied',
-          'Fixing broken links and dead social icons'
-        ]
+          'Google Business Profile setup or improvements',
+          'Google Search Console and Bing Webmaster Tools',
+          'Website analytics and enquiry tracking, where appropriate',
+          'Sitemap submission and checks for indexing issues',
+          'Page titles, descriptions, wording and broken-link fixes',
+          "A straightforward handover explaining what's set up and how to use it"
+        ],
+        footnote: 'Larger website fixes, account recovery and ongoing monitoring are quoted separately. Search rankings and enquiries cannot be guaranteed.'
       },
       {
         icon: <HardDrive size={28} />,
@@ -427,6 +433,17 @@ const Services = () => {
                       {service.icon}
                     </div>
                     <h4 className="font-heading text-xl font-semibold mb-4">{service.title}</h4>
+                    {service.subtitle && (
+                      <p className="text-primary text-xs font-semibold tracking-widest uppercase -mt-3 mb-4">
+                        {service.subtitle}
+                      </p>
+                    )}
+                    {service.desc && (
+                      <p className="text-text-muted text-sm mb-4">{service.desc}</p>
+                    )}
+                    {service.itemsIntro && (
+                      <p className="text-text-muted text-sm mb-3">{service.itemsIntro}</p>
+                    )}
                     <ul className="space-y-2.5">
                       {service.items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-text-muted text-sm">
@@ -435,6 +452,11 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
+                    {service.footnote && (
+                      <p className="text-text-muted text-xs mt-4 pt-4 border-t border-white/10">
+                        {service.footnote}
+                      </p>
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -489,8 +511,8 @@ const AboutJared = () => (
             src="/jared-cutout.png"
             alt="Jared, who runs Jared Fixes"
             data-testid="about-photo"
-            width="936"
-            height="1000"
+            width="560"
+            height="598"
             loading="lazy"
             className="relative w-full h-auto"
           />
@@ -598,8 +620,8 @@ const Pricing = () => {
       desc: 'Larger custom sites, shops or blogs, for clients who need more.'
     },
     {
-      title: 'Get Found on Google — from €150',
-      desc: 'Google Business Profile, Search Console, Analytics, page titles and descriptions, wording and spelling tidy-up on your existing site.'
+      title: 'Get found on Google — from €150',
+      desc: 'For a basic setup. Final scope and price confirmed in writing before work starts.'
     },
     {
       title: 'Ongoing digital support — €25 per hour',
@@ -609,8 +631,7 @@ const Pricing = () => {
       highlight: true,
       title: 'Local home visits — €40',
       desc: 'Including local travel and the first hour of help.',
-      sub: 'Additional time — €25 per hour, agreed before continuing.',
-      note: 'Send me your location when enquiring so I can confirm coverage. Any travel charge outside my local area will be agreed before you book.'
+      sub: 'Additional time — €25 per hour, agreed before continuing.'
     },
     {
       title: 'Remote help (phone or screen-share) — €25 per hour',
@@ -655,7 +676,12 @@ const Pricing = () => {
             ))}
           </div>
 
-          <p className="text-text-muted text-sm mt-6" data-testid="pricing-quote-note">
+          <p className="text-text-muted text-sm mt-6" data-testid="pricing-travel-note">
+            Send me your location when enquiring so I can confirm coverage. Any travel charge
+            outside my local area will be agreed before you book.
+          </p>
+
+          <p className="text-text-muted text-sm mt-4" data-testid="pricing-quote-note">
             Every price is confirmed in a written quote before any work starts.
           </p>
         </motion.div>

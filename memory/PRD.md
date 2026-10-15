@@ -171,3 +171,8 @@ Changed files: frontend/src/App.js, frontend/public/index.html, frontend/src/ind
 - SEO: new title/description, canonical, full Open Graph + Twitter tags, LocalBusiness JSON-LD (no street address). No external owner links anywhere.
 - Verified: testing agent /app/test_reports/iteration_5.json — 100% frontend, zero issues.
 - RESOLVED (Oct 2026): real photo received and saved to frontend/public/jared-cutout.png (936x1000 RGBA, transparent). Rendered 280px wide on desktop / 220px mobile, border-radius 0 (no circle crop), radial orange glow behind. Verified via screenshots; no other file changed.
+
+## Small update pass — Oct 2026 (preview only)
+Files changed: frontend/public/jared-cutout.png (replaced with 56.6 KB / 57,948 bytes, 560x598, palette PNG with tRNS transparency preserved), frontend/src/App.js (img width/height 560x598; travel note moved out of the home-visit item to its own paragraph data-testid="pricing-travel-note" below all prices and above pricing-quote-note; pricing entry renamed "Get found on Google — from €150" with "For a basic setup. Final scope and price confirmed in writing before work starts."; service card gains subtitle/desc/itemsIntro/footnote fields and the new six-bullet Google content).
+- Service card render now supports optional `subtitle`, `desc`, `itemsIntro`, `footnote`.
+- Verified by screenshots desktop 1500x950 + mobile 390x844: card copy, pricing order and note placement, photo (natural 560x598, rendered 280x299, border-radius 0, glow intact), contact hrefs unchanged, 0px horizontal overflow. No publish/deploy/push.
