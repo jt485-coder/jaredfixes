@@ -13,7 +13,7 @@ module.exports = {
         primary: '#ff6a00',
         'primary-hover': '#ff8840',
         'text-main': '#ffffff',
-        'text-muted': '#a3a3a3',
+  'text-muted': '#c9c9c9',
         border: 'rgba(255, 255, 255, 0.1)',
         'glass-bg': 'rgba(10, 10, 10, 0.6)',
       },

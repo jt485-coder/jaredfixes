@@ -16,6 +16,7 @@ import {
   Home,
   Briefcase,
   MessageCircle,
+  Search,
   Send,
   Wrench,
   BadgeCheck,
@@ -185,7 +186,7 @@ const Hero = ({ onOpenContact }) => {
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-white">
               <MapPin size={14} className="text-primary" />
-              Based in County Wexford
+              Based in Oylegate, Co. Wexford
             </span>
           </motion.div>
 
@@ -206,6 +207,14 @@ const Hero = ({ onOpenContact }) => {
               >
                 I'm Jared. I build and look after websites, help organise your digital world,
                 and offer patient technology support—for your business or your home.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                data-testid="hero-coverage-line"
+                className="text-text-muted mb-8 max-w-xl"
+              >
+                Covering Enniscorthy, Wexford town and the surrounding area, plus remote help anywhere.
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
@@ -290,6 +299,16 @@ const serviceGroups = [
           'Business email set up correctly',
           'Getting your business online and findable',
           'Helping you manage your own account details safely'
+        ]
+      },
+      {
+        icon: <Search size={28} />,
+        title: 'Get found on Google',
+        items: [
+          'Google Business Profile set up properly',
+          'Google Search Console and Analytics',
+          'Page titles, descriptions and wording tidied',
+          'Fixing broken links and dead social icons'
         ]
       },
       {
@@ -457,6 +476,43 @@ const Services = () => {
 };
 
 // How It Works Section
+const AboutJared = () => (
+  <section id="about" data-testid="about-section" className="py-20 md:py-24">
+    <div className="max-w-5xl mx-auto px-4 md:px-8">
+      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
+        <div className="relative flex-shrink-0 w-[220px] md:w-[280px]">
+          <div
+            className="absolute inset-0 -m-8 rounded-full blur-3xl pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(255,106,0,0.28) 0%, rgba(255,106,0,0) 70%)' }}
+          />
+          <img
+            src="/jared-cutout.png"
+            alt="Jared, who runs Jared Fixes"
+            data-testid="about-photo"
+            width="280"
+            height="373"
+            loading="lazy"
+            className="relative w-full h-auto"
+          />
+        </div>
+
+        <div className="text-center md:text-left">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            Hi, I'm Jared
+          </h2>
+          <p className="text-text-muted max-w-xl">
+            I'm based in Oylegate and I help local businesses get online and help people at home
+            feel comfortable with their tech. You'll usually spot me in a trucker cap. I explain
+            things in plain English, I agree the price before I start, and I'll always tell you
+            straight if something isn't worth doing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// How It Works Section
 const HowItWorks = ({ onOpenContact }) => {
   const steps = [
     { number: '01', title: 'Get in touch', desc: 'Tell me what you\'d like help with or what you\'re hoping to create. No technical language needed.' },
@@ -530,8 +586,20 @@ const HowItWorks = ({ onOpenContact }) => {
 const Pricing = () => {
   const pricingItems = [
     {
-      title: 'Website projects — quoted individually',
-      desc: 'Based on the agreed scope, with optional ongoing care.'
+      title: 'Starter Website — from €350',
+      desc: 'A clean one-page site, mobile-friendly, with contact details and enquiry form.'
+    },
+    {
+      title: 'Business Website — from €700',
+      desc: 'Several pages, enquiry form, basic Google setup.'
+    },
+    {
+      title: 'WordPress Website — €900–€2,500',
+      desc: 'Larger custom sites, shops or blogs, for clients who need more.'
+    },
+    {
+      title: 'Get Found on Google — from €150',
+      desc: 'Google Business Profile, Search Console, Analytics, page titles and descriptions, wording and spelling tidy-up on your existing site.'
     },
     {
       title: 'Ongoing digital support — €25 per hour',
@@ -543,6 +611,10 @@ const Pricing = () => {
       desc: 'Including local travel and the first hour of help.',
       sub: 'Additional time — €25 per hour, agreed before continuing.',
       note: 'Send me your location when enquiring so I can confirm coverage. Any travel charge outside my local area will be agreed before you book.'
+    },
+    {
+      title: 'Remote help (phone or screen-share) — €25 per hour',
+      desc: 'Anywhere, with the work and estimated time agreed beforehand.'
     }
   ];
 
@@ -582,6 +654,10 @@ const Pricing = () => {
               </div>
             ))}
           </div>
+
+          <p className="text-text-muted text-sm mt-6" data-testid="pricing-quote-note">
+            Every price is confirmed in a written quote before any work starts.
+          </p>
         </motion.div>
 
         {/* A straightforward approach - compact, welcoming */}
@@ -720,7 +796,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: 'What areas do you cover?',
-      answer: "I'm based near Oylegate in County Wexford. Send me your location when you enquire and I'll confirm coverage. Any travel charge outside my local area will be agreed before you book."
+      answer: "I'm based in Oylegate. Home visits within about 15 km (Enniscorthy, Wexford town, Castlebridge, Crossabeg, Glenbrien, Ballymurn and nearby) are €40. For about 15–25 km (e.g. Ferns, Curracloe, Blackwater, Taghmon) there's a €10 travel charge. Further out, we agree it before booking, or I can help remotely by phone and screen-share."
     },
     {
       question: 'What does a home visit cost?',
@@ -1238,6 +1314,7 @@ function App() {
       <main>
         <Hero onOpenContact={() => setIsContactOpen(true)} />
         <Services />
+        <AboutJared />
         <HowItWorks onOpenContact={() => setIsContactOpen(true)} />
         <Pricing />
         <Audience onOpenContact={() => setIsContactOpen(true)} />
