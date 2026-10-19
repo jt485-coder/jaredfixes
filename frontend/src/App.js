@@ -25,6 +25,8 @@ import {
   Film
 } from 'lucide-react';
 import HeroVisual from './HeroVisual';
+import CookieChoice from './CookieChoice';
+import { trackEvent } from './analytics';
 
 
 // WhatsApp brand glyph (not available in lucide)
@@ -1045,6 +1047,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       });
 
       if (response.ok) {
+        trackEvent('generate_lead');
         setIsSubmitted(true);
         setTimeout(() => {
           onClose();
@@ -1235,6 +1238,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                       />
                     </div>
 
+                    <p className="text-sm text-text-muted">Your details are used to reply to your enquiry. <a href="/privacy.html" className="underline">Privacy details</a></p>
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -1348,6 +1352,7 @@ function App() {
         <FinalCTA onOpenContact={() => setIsContactOpen(true)} />
       </main>
       <Footer />
+      <CookieChoice />
       <BackToTop />
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>
