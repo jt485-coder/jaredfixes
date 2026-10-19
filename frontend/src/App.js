@@ -304,8 +304,19 @@ const serviceGroups = [
         ]
       },
       {
+        icon: <HardDrive size={28} />,
+        title: 'Organising your digital world',
+        items: [
+          'Google Drive organisation',
+          'Sensible folder structures you can actually use',
+          'Tidying shared files and documents',
+          'Everyday digital tasks kept manageable'
+        ]
+      },
+      {
         icon: <Search size={28} />,
         title: 'Get found on Google',
+        wide: true,
         subtitle: 'Search & analytics setup',
         desc: 'Help customers find your business online and understand how your website is performing.',
         itemsIntro: 'Depending on your agreed quote, I can help with:',
@@ -318,16 +329,6 @@ const serviceGroups = [
           "A straightforward handover explaining what's set up and how to use it"
         ],
         footnote: 'Larger website fixes, account recovery and ongoing monitoring are quoted separately. Search rankings and enquiries cannot be guaranteed.'
-      },
-      {
-        icon: <HardDrive size={28} />,
-        title: 'Organising your digital world',
-        items: [
-          'Google Drive organisation',
-          'Sensible folder structures you can actually use',
-          'Tidying shared files and documents',
-          'Everyday digital tasks kept manageable'
-        ]
       }
     ]
   },
@@ -429,7 +430,7 @@ const Services = () => {
                     key={index}
                     variants={fadeInUp}
                     data-testid={`service-card-${group.id}-${index}`}
-                    className="bg-surface border border-white/10 rounded-2xl p-7 hover:-translate-y-1 hover:shadow-xl hover:border-white/15 transition-all duration-300 group"
+                    className={`bg-surface border border-white/10 rounded-2xl p-7 hover:-translate-y-1 hover:shadow-xl hover:border-white/15 transition-all duration-300 group ${service.wide ? 'md:col-span-2' : ''}`}
                   >
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:bg-primary/20 transition-colors">
                       {service.icon}
@@ -446,7 +447,7 @@ const Services = () => {
                     {service.itemsIntro && (
                       <p className="text-text-muted text-sm mb-3">{service.itemsIntro}</p>
                     )}
-                    <ul className="space-y-2.5">
+                    <ul className={service.wide ? "grid md:grid-cols-2 gap-x-8 gap-y-2.5" : "space-y-2.5"}>
                       {service.items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-text-muted text-sm">
                           <CheckCircle2 size={14} className="text-primary mt-1 flex-shrink-0" />
@@ -1278,20 +1279,6 @@ const Footer = () => {
           <span className="font-heading font-bold">Jared Fixes</span>
         </div>
         <p className="text-text-muted text-sm mb-4">Websites &amp; everyday tech help</p>
-        <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm">
-          {CONTACT_METHODS.map((method) => (
-            <a
-              key={method.id}
-              href={method.href}
-              {...(method.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              data-testid={`footer-contact-${method.id}`}
-              className="flex items-center gap-2 text-text-muted rounded-full px-2 py-1 transition-colors duration-200 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="text-primary">{method.icon}</span>
-              {method.id === 'phone' ? method.value : method.label}
-            </a>
-          ))}
-        </div>
         <p className="text-text-muted/50 text-xs mt-6">
           © {new Date().getFullYear()} Jared Fixes. Wexford, Ireland.
         </p>
