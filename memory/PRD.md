@@ -1,3 +1,16 @@
+# Current handoff — 22 October 2026
+
+- Repository: jt485-coder/jaredfixes; production branch: `jaredfixes-update-sep16`. Netlify uses `frontend` → `yarn build` → `build`.
+- JaredFixes main has an older, separate history. Start Emergent from jaredfixes-update-sep16; do not export an old main snapshot over production.
+- Replaced the visible portrait in `frontend/src/App.js` with `frontend/public/jared-portrait-2026-10.png`. This is the exact supplied PNG from the LinkedIn portrait upload (black cap, green hoodie, grey background), 1254×1254; no generated facial changes. Square intrinsic dimensions and rounded corners suit the new full-background photo.
+- `frontend/public/index.html`: Open Graph and Twitter image URL is `https://www.jaredfixes.com/jared-portrait-2026-10.png`, with alt text, PNG type and actual dimensions. Updated LocalBusiness JSON-LD image too.
+- New filename avoids reusing the old portrait URL in social caches. Old image assets remain for historical references; active profile/social references use the new file.
+- Validation: production build passed; desktop portrait layout visually checked; metadata uniqueness, absolute URLs, dimensions and byte-for-byte match with the upload checked. Netlify deploy history confirmed the production branch and starting commit (a0b48cb).
+- After deployment, verify HTML tags and image response on the live domain. Social platforms may retain older link previews; request a fresh scrape in LinkedIn Post Inspector / Facebook Sharing Debugger as needed. Existing posts may retain their cached preview.
+- This handoff supersedes older portrait and branch notes below. Preserve subsequent consent/analytics, forms, services and pricing work.
+
+---
+
 # Jared Fixes - Landing Page PRD
 
 ## Original Problem Statement

@@ -511,13 +511,13 @@ const AboutJared = () => (
             style={{ background: 'radial-gradient(circle, rgba(255,106,0,0.28) 0%, rgba(255,106,0,0) 70%)' }}
           />
           <img
-            src="/jared-cutout.png"
+            src="/jared-portrait-2026-10.png"
             alt="Jared, who runs Jared Fixes"
             data-testid="about-photo"
-            width="560"
-            height="598"
+            width="1254"
+            height="1254"
             loading="lazy"
-            className="relative w-full h-auto"
+            className="relative w-full h-auto rounded-2xl"
           />
         </div>
 
